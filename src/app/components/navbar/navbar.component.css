@@ -1,0 +1,22 @@
+  .menu-arrow:hover{
+    cursor: pointer;
+} 
+.mdi:hover{
+    cursor: pointer;
+}
+#span:hover{  cursor: pointer;}
+.nav-second-level:hover{cursor: pointer;}
+/* .mdi mdi-chevron-right{
+    cursor: pointer;
+
+}  */
+ .nav-second-level:hover{
+    cursor: pointer;
+} 
+
+/* .span:hover{    cursor: pointer;
+} */
+li.a:hover{ cursor: pointer;}
+.li:hover{ cursor: pointer;}
+.ul:hover{cursor: pointer;}
+.mdi{color: #000;}

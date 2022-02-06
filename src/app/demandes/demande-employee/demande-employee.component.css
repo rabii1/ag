@@ -1,0 +1,14 @@
+/********************une seul ligne sur panne ...*************/
+ 
+.colp{
+    white-space: nowrap;  
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    text-overflow:ellipsis;
+    text-align:center; 
+    clear: both;
+    
+  }
+  .btn{
+    margin-left: 10px;
+  }

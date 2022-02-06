@@ -1,0 +1,22 @@
+.colp{
+     white-space: nowrap;  
+    overflow: hidden;
+    -webkit-line-clamp:2;
+    text-overflow:ellipsis;
+    text-align:center; 
+    /* clear: both; */
+}
+.btn:hover{
+    cursor: pointer;
+    }
+ .colp{
+        white-space: nowrap;  
+        overflow: hidden;
+        -webkit-line-clamp: 2;
+        text-overflow:ellipsis;
+        text-align:center; 
+        clear: both;
+   }
+   .my-1{
+    color:#005F99;
+  }

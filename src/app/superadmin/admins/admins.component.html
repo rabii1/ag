@@ -1,0 +1,65 @@
+<div class="row">
+    <!--end col-->
+  
+       <div class="col-lg-12">
+           <div class="card">
+               <div class="card-body">
+                <div class="float-right align-item-center mt-2">
+                    <button class="btn btn-info btn-round px-4 align-self-center report-btn" routerLink='/admin-create'>Ajoute </button>
+                </div>
+                <h4 class="mt-0 header-title" style="margin:55px 0;color: rgb(210, 30, 114);text-align: center;">Liste des Admins</h4>
+                <div class="container">
+                    <div class="container custom-container-2">
+  
+                       
+                      
+                        <!-- Employees list table, it hides when there is no employee -->
+                      <div class="col-md-12">
+                        <table id="datatableexample" class="table table-striped mb-0 text-center"    >                      
+                          <thead>
+                            <tr  style=" background-color: #dbe6fd;
+                            color: white;">         
+                              <!-- <th scope="col">Id</th> -->
+                              <!-- <th scope="col" > Image</th> -->
+  
+                              <th scope="col">Prénom</th>
+                              <th scope="col">Email</th>
+                              <th scope="col">Nom</th>
+                              <th scope="col">Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let admin of Admin">
+                              <!-- <td></td> -->
+                              <td><img src="assets/images/adm.jpg"  class="rounded-circle thumb-sm mr-1" style=" width: 10px; height: 10px; ">{{admin.prenom}}</td>
+                              <td>{{admin.email}}</td>
+                              <td>{{admin.nom}}</td>
+                              <td>
+  
+                                <button type="button" class="btn-sm btn-success btn-round" style="margin:5px"   routerLink="/admin-View/{{admin.id}}" ><i class="mdi mdi-eye"></i></button>
+                                <button type="button" class="btn btn-sm btn-warning btn-round" style="margin:5px"  routerLink="/admin-update/{{admin.id}}" ><i class="fas fa-edit"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger btn-round"  style="margin:5px"  (click)="triggerModal(modalData1,admin.id)"   ><i class="fas fa-trash-alt"></i></button>
+                    
+                            </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      </div>
+                    </div>
+                    </div>
+                    </div>
+       </div>
+  
+       <ng-template #modalData1 let-modal>
+        <div class="modal-header">                      
+            <h3 class="modal-title">Supprimer Admin</h3>
+        </div>      
+        <div class="modal-body">                    
+        <p>Voulez-vous vraiment supprimer ces enregistrements?</p>
+        </div>
+        <div class="modal-footer">
+        <input type="button" class="btn btn-default" data-dismiss="modal" (click)="modal.close('Save click')"  value="Annuler">
+        <input type="button" class="btn btn-danger" value="supprimer" (click)="modal.close('Save click')"  (click)="deleteEmployee()" >  
+        </div>
+        </ng-template>

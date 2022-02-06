@@ -1,0 +1,242 @@
+<div class="row">
+    <!--end col-->
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+           
+                 <div class="">
+                     <ol class="breadcrumb">
+                         <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);" routerLink='/list-Ordre' style="color:rgb(210, 30, 114)">Liste ordres  interventions</a></li>
+                         <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"  ></a>ordre intervention </li>
+                        <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"  ></a>Détails </li>
+                     </ol>
+                 </div>  
+           
+
+                 <div class="card">
+                     <div class="card-body invoice-head"> 
+                         <div class="row">
+                             <div class="col-md-4 align-self-center">                                                
+                                 <img src="assets/images/logo.png" alt="logo-small" class="logo-sm mr-2" height="38">                                            
+                                 <img src="assets/images/log.png" alt="logo-large" class="logo-lg" height="18">                                               
+                             </div>
+                             <div class="col-md-8">
+                                 
+                                 <ul class="list-inline mb-0 contact-detail float-right">                                                   
+                                     <li class="list-inline-item">
+                                         <div class="pl-3">
+                                             <i class="mdi mdi-web"></i>
+                                             <p class="text-muted mb-0">www.GMAO.com</p>
+                                         </div>                                                
+                                     </li>
+                                     <li class="list-inline-item">
+                                         <div class="pl-3">
+                                             <i class="mdi mdi-phone"></i>
+                                             <p class="text-muted mb-0"></p>
+                                         </div>
+                                     </li>
+                                     
+                                     <li class="list-inline-item">
+
+                                         <div class="pl-3">
+                                             <i class="mdi mdi-map-marker"></i>
+                                             <p class="text-muted mb-0"></p>
+                                         </div>
+                                     </li>
+                                 </ul>
+                             </div>
+                         </div> 
+                     </div>
+                     <div class="card-body">
+                         <h4 class="mt-0 header-title"  style="margin:55px 0;color: rgb(210, 30, 114);text-align: center;"> Détails ordre d'interventions </h4>
+
+
+
+                        <div class="button-items">
+
+
+                            <button type="button" class="btn btn-outline-purple btn-round waves-effect waves-light"><i class="mdi mdi-close-octagon-outline"></i>
+
+                                Non executé</button>
+                            <button type="button" class="btn btn-outline-pink btn-round waves-effect waves-light"><i class="mdi mdi-dribbble mr-2"></i>En Mission</button>
+                            <button type="button" class="btn btn-outline-success btn-round waves-effect waves-light"><i class="mdi mdi-checkbox-marked-circle-outline"></i> Valider </button>
+        
+                      </div> 
+
+                         <div class="row">
+ 
+                              <div class="col-lg-12">
+                                 <div class="card">
+                                     <div class="card card-body text-center">
+                                         
+                                       
+                                         <h4 class="card-title mt-0"  style="color:#DB6400;">Informations ordre d'intervention</h4>
+                                         <p class="card-text"></p>                                        
+                                           <div class="row">
+ 
+                                                        <div class="col-md-4">
+     
+                                                            <h5 class="my-1"> 	Date Debut</h5>
+                                                            <p class="text-muted mb-2">  {{ordreintervention.debutprevu|date: 'MM-dd-yyyy' }}                                            
+                                                            </p>
+                                                        </div>
+                                                        
+                                                        <div class="col-md-4">
+                     
+                                                            <h5 class="my-1">Dégré </h5>
+                                                            <p class="text-muted mb-2"> {{ordreintervention.degre_urgence}}       
+                                                         </p>
+                                                        </div>
+            
+                                                            <div class="col-md-4">
+                                                            <h5 class="my-1">Dégré </h5>
+                                                            <p class="text-muted mb-2"> {{ordreintervention.nature_de_travaux}}       
+                                                            </p>
+                                                            </div>
+                                                 </div>
+                                             </div>
+                                             <p class="card-footer bg-light m-0">Informations intervention - GMAO</p>
+            
+                                         </div>
+                                         </div> 
+
+
+
+                                      
+                               </div>
+                             </div>
+                     
+ 
+                             <div class="row">
+                                 <div class="col-lg-6">
+                                     <div class="card">
+                                         <div class="card card-body text-center">
+                                             
+                                           
+                                             <h4 class="card-title mt-0"  style="color:#DB6400;" > Note de demande
+                                             </h4>
+                                             <p class="card-text"></p>                                        
+                                             <div class="row">
+     
+                                                 <div class="col-md-4">
+                                                     <h5 class="my-1">Panne </h5>
+                                                     <p class="text-muted mb-2">{{ ordreintervention.demandeintervention.panne }} </p>
+                                                  </div>
+                                                 <div class="col-md-4">
+         
+                                                     <h5 class="my-1"> Date arrete de machine</h5>
+                                                     <p class="text-muted mb-2">{{ ordreintervention.demandeintervention.dureearretmachine }} </p>
+                                                 </div>
+                                                
+                                                 <div class="col-md-4">
+         
+                                                     <h5 class="my-1"> Etat</h5>
+                                                     <p class="text-muted mb-2">{{ordreintervention.demandeintervention.status}}</p>
+                                                 </div>
+                                                
+                                         </div><!--end card-body-->
+                                     </div><!--end card-->
+                                     <p class="card-footer bg-light m-0">Note d'intervention - GMAO</p>
+
+                                 </div><!--end col-->
+
+                            
+
+                                 </div>
+
+                                 <div class="col-lg-6">
+
+                                    <div class="card">
+                                       <div class="card card-body text-center">
+                                           
+                                         
+                                           <h4 class="card-title mt-0"  style="color:#DB6400;" > Note de technicien
+                                           </h4>
+                                           <p class="card-text"></p>                                        
+                                           <div class="row">
+   
+                                               <div class="col-md-4">
+                                                   <h5 class="my-1">Nom & Prénom </h5>
+                                                   <p class="text-muted mb-2">{{ ordreintervention.technicien.nom }} {{ ordreintervention.technicien.prenom }} </p>
+                                                </div>
+                                               <div class="col-md-4">
+       
+                                                   <h5 class="my-1"> Numéro téléphone</h5>
+                                                   <p class="text-muted mb-2">{{ ordreintervention.technicien.tel }} </p>
+                                               </div>
+                                              
+                                               <div class="col-md-4">
+       
+                                                   <h5 class="my-1"> Grade</h5>
+                                                   <p class="text-muted mb-2">{{ordreintervention.technicien.grade}}</p>
+                                               </div>
+                                              
+                                       </div><!--end card-body-->
+                                   </div><!--end card-->
+                                   <p class="card-footer bg-light m-0">Note de technicien - GMAO</p>
+
+                               </div>
+                                 </div>          
+                                 
+
+
+                                 
+                                 </div>
+
+                                 <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="card">
+                                            <div class="card card-body text-center">
+                                                
+                                              
+                                                <h4 class="card-title mt-0"  style="color:#DB6400;" >Equipements liés à cette ordre intervention
+                                                </h4>
+
+                                                    <p class="card-text"></p>                                        
+                                                    <div class="row">
+
+                                                    <div class="col-md-3">
+                                                        <h5 class="my-1">Libellé</h5>
+                                                        <p class="text-muted mb-2">{{ordreintervention.equipement.libelle}} </p>
+                                                     </div>
+                                                     
+                                                     <div class="col-md-3">
+                                                        <h5 class="my-1">Marque</h5>
+                                                        <p class="text-muted mb-2">{{ordreintervention.equipement.marque}} </p>
+                                                     </div>
+
+                                                     <div class="col-md-3">
+                                                        <h5 class="my-1">Numero model</h5>
+                                                        <p class="text-muted mb-2">{{ordreintervention.equipement.numero_model}}  </p>
+                                                     </div>
+
+                                                     <div class="col-md-3">
+                                                        <h5 class="my-1">Numero série</h5>
+                                                        <p class="text-muted mb-2">{{ordreintervention.equipement.numero_serie}}  </p>
+                                                     </div>
+                                 </div>
+                                 </div>
+                                 <p class="card-footer bg-light m-0">Equipements liés à cette intervention- GMAO</p>
+
+                                 </div>
+                                 </div>
+                                 </div>
+
+                                 <hr>
+                                 <div class="row d-flex justify-content-center">
+                                     <div class="col-lg-12 col-xl-4 ml-auto align-self-center">
+                                         <div class="text-center text-muted"><small>Merci beaucoup de faire affaire avec nous. Merci!</small></div>
+                                     </div>
+                                     </div>
+
+                                     </div>
+
+                                       
+                                </div><!--end card-body-->
+                                    
+</div>
+</div>
+</div>
+
+

@@ -1,0 +1,450 @@
+<div class="row">
+    
+
+       <div class="col-lg-12">
+           <div class="card">
+            
+               <div class="card-body">
+          
+                <h4 class="mt-0 header-title" style="margin:55px 0;color: rgb(210, 30, 114);text-align: center;"> Liste Ordre d'interventions </h4>
+               
+
+                <div class="float-lefet align-item-center mt-2">
+                    <button (click)="toggle()" id="btToggle" type="button" class="btn btn-purple btn-lg waves-effect waves-light" >{{button_name}}</button>
+                </div>
+        
+                <div *ngIf="show_div" >
+                    <div class="row" >
+                        <!-- <div class="col-xs-3 col-3 col-md-3 "> -->
+                            <!-- <div class="col-xs-4 mb-3"> -->
+                                <div class="col-xl-4 mb-3">
+
+                                <div class="mt-0 header-title"><span  style="color: #FF3D68; margin:80px">FILTRE PAR DATE</span></div>
+                          </div>
+                        <!-- date time picker component -->
+                        <!-- <div class="col-md-4 mb-3"> -->
+                            <div class="col-xl-4 mb-3">
+
+                            <div class="input-group" >
+                        <!-- <div class="col-xs-3 col-4 col-md-4 form-group">  -->
+                              <span class="input-group-text"><i class="mdi mdi-calendar-today"></i> </span> 
+                         <input type="text"  id="Min" [(ngModel)]="Min"   placeholder="MM-DD-YYYY HH:mm"  class="dateadded form-control"  >   
+                        <!-- <input type="date"     class="dateadded form-control"-->   
+                         </div> 
+                         </div>
+                      <!-- <div class="col-md-4 mb-3"> -->
+                        <div class="col-xl-4 mb-3">
+
+                        <div class="input-group" >
+    
+                        <!-- <div class="col-xs-3 col-4 col-md-4 form-group">   -->
+                            <span class="input-group-text"><i class="mdi mdi-calendar-today"></i> </span> 
+                            <input type="text"    [(ngModel)]="Max " name="max" id="Max"    placeholder="MM-DD-YYYY HH:mm" class="dateadded form-control"  >  
+                        <!-- </div>   -->
+                        </div> 
+                      </div>
+                    </div>
+    
+                    <div class="row" >
+                        <!-- <div class="col-xs-5 mb-3"> -->
+                            <div class="col-xl-4 mb-3">
+
+                            <div class="mt-0 header-title"><span  style="color: #FF3D68; margin:80px">Filtre par Etat </span></div>
+                        </div>
+    
+                      <div class="col-md-2 mb-3">
+                            <form [formGroup]="form" (ngSubmit)="submit()">
+                                 <select [(ngModel)]="term" class="custom-select"  formControlName="etat" >
+                                    <option  hidden selected>Sélectionner Etat</option>
+                                    <option *ngFor="let etat of EtatFilter " [ngValue]="etat" class="custom-select" >
+                                        {{ etat}}
+                                      </option>
+                                 </select> 
+                                  </form>
+                                   </div>
+                                    </div>
+                                </div>
+             
+
+                            <div class="row" >
+                                <div class="col-md-1 mb-3">
+                                </div>
+                               <div class="col-md-1 mb-3">
+                             </div> 
+                              
+                                <div class="custom-control">
+                                    
+                                    <label class="border-0" ><i class="mdi mdi-circle mr-1 text-warning"></i>Initiale</label>
+                                </div>
+                                <div class="custom-control">
+                                    
+                                    <label class="border-0" ><i class="mdi mdi-circle mr-1 text-info"></i> bien reçu
+
+                                    </label>
+                                </div>
+                                <div class="custom-control">
+                                    
+                                    <label class="border-0" ><i class="mdi mdi-circle mr-1 text-purple"></i> En cours
+
+                                    </label>
+                                </div>
+                                
+                                <div class="custom-control">
+                                    
+                                    <label class="border-0" ><i class="mdi mdi-circle mr-1 text-dark"></i> Annuler
+
+                                    </label>
+                                </div>
+                   
+                                <div class="custom-control">
+                                    
+                                    <label class="border-0" ><i class="mdi mdi-circle mr-1 text-primary"></i>Cloturer
+
+                                    </label>
+                                </div> 
+                                </div>
+                            <div class="row" >
+                                <div class="col-md-1 mb-3">
+                                </div>
+                               <div class="col-md-1 mb-3">
+                             </div>
+                                     
+                                <div class="custom-control ">
+            
+                                    <label class="border-0"><i class="mdi mdi-circle mr-1 text-danger "></i>  Rejetee</label>
+                                </div>
+                                
+                                <div class="custom-control">
+                                    <label class="border-0" ><i class="mdi mdi-circle mr-1 " style="color:#7F7C82;"></i>Suspendu par Adminstrateur
+                                    </label>
+                                </div>
+                               
+                                <div class="custom-control">
+                                    <label class="border-0" ><i class="mdi mdi-circle mr-1 text-pink"></i>Suspendu par Technicien
+                                    </label>
+                                </div>
+                                
+         
+
+                            </div>
+
+
+                <div class="row justify-content-center mt-5">
+                       
+                    <div *ngIf="Ordreintervention.length == 0"><h5>pas des ordres interventions</h5></div>
+
+                    <div class="col-lg-4"   *ngFor="let ordreintervention of Ordreintervention  of sortData | ordreFilter:term |  dateordre:Min:Max  | paginate : {
+                        itemsPerPage: tableSize,
+                        currentPage: page,
+                        totalItems: count
+                      };" >
+                        <div class="card profile-card">
+                            <!-- <div [ngStyle]="{'color':ordreintervention.etat === 'suspenduAdmin'?'green'}" class="card-body  p-0"> -->
+
+                            <div [ngClass]="{'gris' : ordreintervention.etat === 'suspenduAdmin' ,'bg-danger': ordreintervention.etat === 'rejetee','bg-pink': ordreintervention.etat === 'suspenduTech','bg-primary': ordreintervention.etat === 'cloturer','bg-dark': ordreintervention.etat === 'annuler','bg-info': ordreintervention.etat === 'bien reçu','bg-warning': ordreintervention.etat === 'initiale','bg-success': ordreintervention.etat === 'valider','bg-purple': ordreintervention.etat === 'en cours'}"
+                            class="card-body  p-0">
+                                <div class="media p-3  align-items-center">  
+                                    <img src="http://127.0.0.1:1337/images/{{ordreintervention.demandeintervention.equipement.image}}" alt="equipement" class="rounded-circle thumb-lg"> 
+                                              
+                                    <div class="media-body ml-3  align-self-center">
+                                        <h5 class="mb-1 text-white">Date début prévu</h5>
+                                        <p class="mb-0  text-white">{{ ordreintervention.debutprevu |date: 'MM-dd-yyyy HH:mm' }}</p>                                                    
+                                    </div>
+                                    
+                                    <!-- <a  [ngClass]="{'btn  btn-light btn-sm': ordreintervention.etat === 'valider'}" class="btn  btn-light btn-sm" ><i class="mdi mdi-gesture-double-tap font-20 ml-1"></i></a>  -->
+                                    <a class="btn  btn-light btn-sm"   (click)="triggerModalView(modalData1,ordreintervention.id)" ><i class="mdi mdi-eye text-primary"></i></a> 
+                                    <a class="btn  btn-light btn-sm"   routerLink ="/update-Ordre/{{ordreintervention.id}}" > <i class="fas fa-edit text-warning"></i></a> 
+                                    <!-- <a *ngIf="ordreintervention.etat === 'valider'" class="btn  btn-light btn-sm"  (click)="showToasterSuccess()"  routerLink="/create-intervention/{{ordreintervention.id}}"><i  class="mdi mdi-gesture-double-tap font-20 ml-1"></i></a>  -->
+
+                                </div>
+                            </div>
+
+                            
+                            <div   class="card-body pb-0 text-center"  >
+                               <h6 class="text-center"  style="color:#DB6400;" > <strong >Nature de travaux</strong> </h6>
+                                <p   style="color: rgb(44, 40, 42);" class="colp" >{{ordreintervention.nature_de_travaux}}</p>
+                             
+
+                               
+                            </div><!--end card-body [ngClass]="{'  badge-success':ordreintervention.degre_urgence==='primaire' ,' badge-success':ordreintervention.degre_urgence==='1: primaire','  badge-warning' :ordreintervention.degre_urgence==='secondaire'}" --> 
+
+                            <div 
+                            class="card-body socials-data pb-0 px-0" >
+                                <div class="row text-center border-top m-0"   >
+                                    <div class="col-6 border-right py-3" >
+                                        <span class="font-14 "   style="color:#DB6400;">Dégre </span>
+                                        <p class="mt-0 mb-1"  >{{ordreintervention.degre_urgence}}</p>
+                                
+                                    </div><!--end col-->
+                                    <div class="col-6 border-right py-3">
+                                        <span class="font-14 " style="color: #DB6400;">Etat</span>
+                                        <div [ngClass]="{'gris' : ordreintervention.etat === 'suspenduAdmin','badge-dark': ordreintervention.etat ==='annuler','badge-danger': ordreintervention.etat === 'rejetee',' badge-purple': ordreintervention.etat === 'en cours', ' badge-info': ordreintervention.etat === 'bien reçu',' badge-warning': ordreintervention.etat === 'initiale',' badge-success': ordreintervention.etat === 'valider' ,' badge-primary': ordreintervention.etat ==='cloturer','badge-pink': ordreintervention.etat ==='suspenduTech','badge-purple': ordreintervention.etat === 'en cours'}"
+                                            class="mt-0 mb-1">  
+                                        <p  class="mt-0 mb-1" >{{ordreintervention.etat}}</p>
+                                       </div>
+                                    </div>  <!--end col-->                                          
+                                </div><!--end row-->
+                            </div> <!--end card-body-->                                       
+                        </div><!--end col-->
+                    </div><!--end col--> 
+
+                          
+
+                       
+                   
+  
+            </div>
+           
+        <div class="row" >
+            <div class="col-xl-2 mb-3">
+            </div>
+            <div class="col-xl-6 mb-3">
+        <div class="d-flex justify-content-center">
+            <pagination-controls  previousLabel="Précédent"  nextLabel="Suivant" (pageChange)="onTableDataChange($event)">
+            </pagination-controls>
+        </div>
+        </div>
+
+            <!-- <div class="col-xs-3 col-3 col-md-3 "> -->
+                <div class="col-xl-4 mb-3">
+
+                    <div class="pagination justify-content-end">
+                        <!-- <div class="d-flex flex-row-reverse bd-highlight mb-2">  -->
+                            <div class="p-2 bd-highlight"> 
+                             <select (change)="onTableSizeChange($event)" class="custom-select">
+                               <option *ngFor="let size of tableSizes" [ngValue]="size">
+                                 {{ size }}
+                               </option>
+                             </select>
+                           </div>
+                           </div>
+
+                </div>
+        </div>
+     <br>
+     <hr>
+      
+
+            
+
+        </div>
+        </div>
+    </div>
+
+    <ng-template #modalData1 let-modal>
+ 
+        
+                <div class="modal-header">                      
+                    <h4 class="mt-0 header-title"  style="margin:55px 0;color: rgb(210, 30, 114);text-align: center;"> Détails ordre d'interventions </h4>
+                </div>   
+        
+                <div class="modal-body">   
+                 <div class="row">
+            <!--end col-->
+        
+            <div class="col-lg-12">
+
+                             <div class="card-body">
+        
+                                 <div class="row">
+         
+                                      <div class="col-lg-12">
+                                         <!-- <div class="card"> -->
+                                             <div class="card card-body text-center">
+                                                 
+                                               
+                                                 <h4 class="card-title mt-0"  style="color:#DB6400;">Informations sur  ordre d'intervention</h4>
+                                                 <p class="card-text"></p>                                        
+                                                   <div class="row">
+         
+                                                                <div class="col-md-4">
+             
+                                                                    <h5 class="my-1"> Période de fin de réparation</h5>
+                                                                    <p class="text mb-2" style=" color:#111110;">  {{ordreintervention.dateestimation }}                                            
+                                                                    </p>
+                                                                </div>
+                                                                
+                                                                <div class="col-md-4">
+                             
+                                                                    <h5 class="my-1">Dégré </h5>
+                                                                    <p class="text mb-2" style=" color:#111110;"> {{ordreintervention.degre_urgence}}       
+                                                                 </p>
+                                                                </div>
+                    
+                                                                    <div class="col-md-4">
+                                                                    <h5 class="my-1">Nature de travaux </h5>
+                                                                    <p class="text mb-2" style=" color:#111110;"> {{ordreintervention.nature_de_travaux}}       
+                                                                    </p>
+                                                                    </div>
+                                                         </div>
+                                                     </div>
+                    
+                                                 <!-- </div> -->
+    
+                                         <!-- <div class="card"> -->
+
+
+
+                                            <div class="card card-body text-center">
+                                                 
+                                               
+                                                <h4 class="card-title mt-0"  style="color:#DB6400;">Affecté par technicen </h4>
+                                                <p class="card-text"></p>                                        
+                                                  <div class="row">
+        
+                                                               <div class="col-md-4">
+            
+                                                                   <h5 class="my-1"> 	Nom & Prénom</h5>
+                                                                   <p class="text mb-2" style=" color:#111110;">  {{ordreintervention.technicien.nom}}    {{ordreintervention.technicien.prenom}}                                           
+                                                                   </p>
+                                                               </div>
+
+                                                               <div class="col-md-4">
+                                                                <h5 class="my-1">Email</h5>
+                                                                <p class="text mb-2" style=" color:#111110;"> {{ordreintervention.technicien.email}}       
+                                                                </p>
+                                                                </div>
+                                                                
+                                                               <div class="col-md-4">
+                            
+                                                                   <h5 class="my-1">Téléphone </h5>
+                                                                   <p class="text mb-2" style=" color:#111110;"> {{ordreintervention.technicien.tel}}       
+                                                                </p>
+                                                               </div>
+                   
+                                                                  
+                                                        </div>
+                                                    </div>
+
+
+                                            <div class="card card-body text-center">
+                                         <h4 class="card-title mt-0"  style="color:#DB6400;" > Etat ordre d'intervention 
+                                        </h4>
+
+                                         <div class="pricingTable1 text-center" >
+                                            
+
+                                                    <div class="card-post ">
+                                                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                            <div class="">
+                                                                <div class="tracking-timeline">
+                                                                    <ul class="timeline mt-4">
+                                                                        <li>
+                                                                            <p class="timeline-date" style="color:#111110;">{{ ordreintervention.debutprevu |date: 'MM-dd-yyyy HH:mm' }}</p>
+                                                                            <div class="timeline-content">
+                                                                                <div class="track-info">
+                                                                                    <div *ngIf="ordreintervention.etat=='rejetee'" class="text-muted float-right">
+                                                                                        <p class="mb-1"  style="  color:#005F99;">Description</p>
+                                                                                        <span style="  color:#070707;">{{ordreintervention.description}} </span>
+                                                                                    </div>
+                                                                                    <h5 class="mt-0 mb-1">ETAT </h5>
+                                                                                    <span class="badge badge-danger" style=" font-size:15px;" >{{ordreintervention.etat}}</span>
+                                                                                </div>  
+                                                                                                                                   
+                                                                            </div>
+                                                                        </li>
+                                                                      </ul>
+                                                      </div>
+                                                               </div>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                               
+                                            </div>
+                                            <div class="card card-body text-center">
+                                                <h4 class="card-title mt-0"  style="color:#DB6400;" >Equipements liés à cette ordre intervention
+                                               </h4>
+                     
+                                                <div class="pricingTable1 text-center" >
+                                                   
+                                                         <img src ="http://127.0.0.1:1337/images/{{ordreintervention.demandeintervention.equipementx.image}}"  alt="" class=" mx-auto  d-block"  width ="200" height="200"> 
+                     
+                                                           <div class="card-post ">
+                                                                  <strong> {{ordreintervention.demandeintervention.equipementx.libelle}} </strong>
+                                                           </div>
+                                                       </div>
+                                                       <div class="card-body">
+                                                           
+                                                           <div class="pricingTable1 text-center">
+                                                              
+                                                           <ul class="list-unstyled pricing-content-2 py-3 border-0">
+                                                               <li><strong >Marque:</strong>{{ordreintervention.demandeintervention.equipementx.marque}}</li>
+                                                               <li><strong>Numéro model:</strong> {{ordreintervention.demandeintervention.equipementx.numero_model}} </li>
+                                                               <li><strong>Numéro série:</strong>Numéro série:{{ordreintervention.demandeintervention.equipementx.numero_serie}} </li>
+                                                           </ul>
+                                                           </div>
+                                                           
+                                                       </div><!--end card-body-->
+                                                   </div><!--end card-->
+
+
+                                        <div *ngIf="ordreintervention.etat ==='initiale' || ordreintervention.etat ==='en cours' || ordreintervention.etat === 'bien reçu'" class="text-center">
+                                            <button  style="margin-left: 0 "type="button" (click)="AnuulerOrdre(ordreintervention.demandeintervention.id,ordreintervention.id)"  class="btn-xl btn-block btn btn-danger waves-effect waves-light"><i class="fa fa-times" aria-hidden="true"></i>ANNULER ORDRE</button>            
+                                        </div>
+
+
+                                        <div *ngIf="ordreintervention.etat ==='suspenduTech'" class="  text-center">
+                                            <button style="margin-left: 0 " type="button"  (click)="lancerNvOrdre()"    class="     btn-xl btn-block   btn btn-warning waves-effect waves-light" routerLink="/createOrdre/{{ordreintervention.demandeintervention.id}}/{{ordreintervention.technicien.id}}"><i class="mdi mdi-alert-outline mr-2"></i>Relancer une nouvelle Ordre  ?</button>
+                                        </div>
+                                        <div *ngIf="ordreintervention.etat == 'suspenduAdmin' " class="  text-center">
+                                        <button  style="margin-left: 0 " type="button"  (click)="onButtonClick()"   class="btn-xl btn-block   btn btn-warning waves-effect waves-light" *ngIf="ordreintervention.etat == 'valider' || ordreintervention.etat == 'bien reçu' || ordreintervention.etat =='cloturer' || ordreintervention.etat =='en cours'"   type="button" class="btn btn-soft-danger btn-lg" routerLink="/createOrdre/{{ordreintervention.demandeintervention.id}}/{{ordreintervention.technicien.id}}"   data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="btn info btn-round waves-effect waves-light"><i class="mdi mdi-gesture-double-tap font-20 ml-1"></i>Relancer ordre</button>
+                                         </div>
+
+<!-- 
+                                        <div   *ngIf="ordreintervention.etat === 'rejetee'"  class="  text-center">
+                                            <button  (click)="changeetat(ordreintervention.demandeintervention.id)"  style="margin-left: 0 " type="button"    class="btn-xl btn-block   btn btn-info waves-effect waves-light"><i class="mdi mdi-alert-outline mr-2"></i>Reinitialiser Etat</button>
+                                        </div> -->
+        
+
+                                        <div *ngIf="!Ishide" class="card">
+                                            <div class="card card-body text-center">
+                                                
+                                                <h4 class="card-title mt-0"  style="color:#DB6400;"> Situation choisie </h4>
+                                                
+                                                        <div class="row" >   
+                                                            <div class="col-lg-4">
+                                                            <button type="button"  class="btn-xl btn-warning  btn-round waves-effect waves-light" ><i class="mdi mdi-close-octagon-outline"></i>
+                                                                Exception</button>
+                                                            </div>
+                                                                <div class="col-lg-6">
+                                                                    <input type="text" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="explication">
+                                                                </div> 
+                                                        </div>
+                                                                
+                                                        <div class="row"> 
+                                                                <div class="col-lg-4" style="padding: 10px;">
+                                                                 <button type="button" class="btn btn-pink btn-round waves-effect waves-light"><i class="mdi mdi-dribbble mr-2"></i>En Mission</button> 
+                                                               </div>
+                                                               <div class="col-lg-6">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row"> 
+                                                                   <div class="col-lg-4" style="padding: 10px;">
+                                                                    <button type="button" class="btn btn-success btn-round waves-effect waves-light"><i class="mdi mdi-checkbox-marked-circle-outline"></i> Valider </button>
+                                                                   </div>
+                                                                   <div class="col-lg-6"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                       </div>
+                                     </div>       
+                                </div><!--end card-body-->
+                                            
+
+        </div>
+        
+        <div class="modal-footer">
+            <input type="button" class="btn btn-danger" data-dismiss="modal" (click)="modal.close('Save click')"  value="Fermer">
+            </div>
+        
+                    
+                </div>
+        
+          
+            
+           
+       
+       
+        </ng-template> 

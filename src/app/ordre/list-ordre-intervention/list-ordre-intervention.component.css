@@ -1,0 +1,105 @@
+.button{margin-left: 20px;}
+.button-items{
+    text-align: right;
+    padding: 40px;
+}
+
+
+.list-unstyled{
+    margin-top: 20px;
+    text-decoration: black;
+}
+
+.card-post-author{
+    margin-top: 30px;
+}
+ 
+  
+  .mx-auto{
+      border: 2px solid rgb(223, 218, 218);
+      /* border: 5px solid ; */
+
+  }
+  .card-post{
+      margin-top: 30px;
+
+}
+
+
+ .row d-flex mt-3{
+    text-align: center;
+    /* margin-right: 25px; */
+    border-color:#20c997;}
+
+
+    .colp{
+        white-space: nowrap;  
+        overflow: hidden;
+        -webkit-line-clamp: 2;
+        text-overflow:ellipsis;
+        text-align:center; 
+        clear: both;
+ 
+   }
+   .d-flex{
+   
+}
+.btn:hover{
+cursor: pointer;
+}
+.btn{
+  margin-left: 10px;
+}
+
+  
+
+  .container{
+    left: 40px; 
+  }
+ .content {
+
+  }
+  .input{top: 15;}
+  
+  .search-form {
+    border-radius: 30px 0 0 30px;
+  }
+  
+
+  
+.input-group {
+     width:60%;
+     text-align: center; 
+
+
+  }
+  
+  #search {
+    border: 2px;
+ 
+  }
+  
+  .search-btn {
+    cursor:pointer;
+    border-radius: 0 30px 30px 0; 
+    background-color:#FDE49C;
+    color:#669;
+    
+  }
+   .col-xs-4{
+     text-align: left;
+
+  }  
+ 
+
+/********** Icon size ********/
+.mdi{
+  font-size: 17px;
+}
+/************* pagination cursor************/
+.custom-select:hover{    cursor:pointer;
+}
+.my-1{
+  color:#005F99;
+}
+.gris{background-color:#7F7C82 !important ;}

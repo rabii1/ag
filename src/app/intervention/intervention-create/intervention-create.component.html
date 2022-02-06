@@ -1,0 +1,241 @@
+
+<div class="row">
+    <!--end col-->
+
+       <div class="col-lg-12">
+           <div class="card">
+               <div class="card-body">
+                <div class="">
+                    <ol class="breadcrumb">
+                        <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"
+                            style="color:rgb(210, 30, 114)"   routerLink='/Viewintervention'>Suivi Intervention</a></li>
+                        <li class="d-inline-block align-middle mb-0 product-name"><a
+                                href="javascript:void(0);"></a>Intervention </li>
+                        <li class="d-inline-block align-middle mb-0 product-name"><a
+                                href="javascript:void(0);"></a>Ajouter une intervention
+                        </li>
+                    </ol>
+                </div>
+                <div class="card-body invoice-head"> 
+                    <div class="row">
+                        <div class="col-md-4 align-self-center">                                                
+                            <img src="assets/images/gmao.png" alt="logo-small" class="logo-sm mr-2" height="38">                                            
+                            <!-- <img src="assets/images/log.png" alt="logo-large" class="logo-lg" height="18">                                                -->
+                        </div>
+                        <div class="col-md-8">
+                               
+                            <ul class="list-inline mb-0 contact-detail float-right">                                                   
+                                <li class="list-inline-item">
+                                    <div class="pl-3">
+                                        <i class="mdi mdi-web"></i>
+                                        <p class="text-muted mb-0">www.GMAO e-SAAD.com</p>
+                                    </div>                                                
+                                </li>
+                                <li class="list-inline-item">
+                                    <div class="pl-3">
+                                        <i class="mdi mdi-phone"></i>
+                                        <p class="text-muted mb-0">{{ Usertel}}</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div> 
+                </div>
+                <div class="card-body ">
+                    <br>
+                    <h4 class="mt-0 header-title" style="margin:55px 0;color: rgb(210, 30, 114);text-align: center;"> LANCER L'INTERVENTION </h4>
+
+                        
+                  <div class="alert alert-outline-danger alert-danger-shadow mb-0 alert-dismissible fade show" role="alert">
+                                    <ul>
+                                      <li> <strong>Début prévu  :{{ordreintervention.debutprevu | date:'MM-dd-yyyy HH:mm'}} </strong> </li>
+                                   </ul> 
+                                <ul>
+                                   <li><strong>  Période de fin de réparation :{{ordreintervention.dateestimation }} </strong> </li> 
+                                </ul>
+                    </div> 
+    
+                                                
+                                                                                                 
+                                        
+            </div>
+            <br>
+            <div class="card-body">
+
+                <form class="mb-0" [formGroup]="form"  >
+                   
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="text">Debut réel<small class="text-danger font-13">*</small></label>
+                                <input [min]="minDate" type="datetime-local" class="form-control" id="date_debut"   
+                                    formControlName="date_debut">
+                                <div *ngIf="f.date_debut.touched && f.date_debut.invalid "
+                                    class="text-danger">
+                                    <div *ngIf="f.date_debut.errors.required"> <i
+                                            class="fa fa-exclamation-triangle" style="padding: 5px;"
+                                            aria-hidden="true"></i>date debut  est obligatoire.</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <!-- <label class="text"><small class="text-danger font-13">*</small></label>
+                                <input  type="text" class="form-control" id="ms"   formControlName="ms" > -->
+<!--                                
+                                <div ng-controller="Ctrl1" (click)=" dayDiff()">
+                                    <div ng-repeat="date in dates">
+                             <p> {{intervention.duration}} {{intervention.day}} : {{intervention.hours}} : {{intervention.minutes}} </p>
+                               </div> </div> -->
+                             
+                              <!-- <div *ngIf="f.diff.touched && f.diff.invalid "
+                                    class="text-danger">
+                                    <div *ngIf="f.diff.errors.required"> <i
+                                            class="fa fa-exclamation-triangle" style="padding: 5px;"
+                                            aria-hidden="true"></i>date debut  est obligatoire.</div>
+                                </div> -->
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label for=""  class="text">Essais effectués<small
+                                            class="text-danger font-13">*</small></label>
+                                      <div class="row">
+                                
+                                    <div class="col-md-5" style="margin-top:11%">
+
+                                        <!-- <div class="my-3"> -->
+                                            <div class="radio radio-info form-check-inline">
+                                                <input id="encours" type="radio" value="en cours" name="etat"
+                                                    formControleName="etat" (change)="changeEat($event)"  >
+                                                <label  class="custom-control-label" for="en cours" class="text" >EN COURS</label>
+                                            <!-- </div> -->
+                                        </div>
+                                        </div>
+
+                                        <div class="col-md-4"  style="margin-top:11%">
+                                        <!-- <div class="my-3"> -->
+                                            <div class="radio radio-info form-check-inline">
+                                                <input id="terminer" type="radio" value="terminer" name="etat"
+                                                    formControleName="etat" (change)="changeEat($event)">
+                                                <label class="custom-control-label"
+                                                    for="terminer" class="text">TERMINER</label>
+                                            </div>
+                                        </div>
+
+                                        <!-- <div class="my-3"> -->
+                                            <div class="col-md-3"  style="margin-top:11%">
+
+                                            <div class="radio radio-info form-check-inline">
+                                                <input id="arreter" type="radio" value="arreter" name="etat"
+                                                    formControleName="etat" (change)="changeEat($event)"  >
+                                                <label  class="custom-control-label" for="arreter" class="text" >ARRETER</label>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                      
+                                     
+                                        </div>
+                                        </div>
+                     
+</div>
+</div>
+     
+
+                  
+              <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group  " *ngIf="dropdownList.length" >
+                        <label class="text w-100"><span>Liste des piéces utilisées </span><span
+                                style="float: right;cursor: pointer;" class="text-danger font-13  ">
+                              </span></label>
+
+
+                                <ng-multiselect-dropdown    formControlName="listp"    
+                                [settings]="dropdownSettings" [data]="dropdownList"
+                                 
+                               >
+                            </ng-multiselect-dropdown>
+                    </div>
+                  
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="text">Observation <small class="text-danger font-13">*</small></label>
+                        <textarea type="text" class="form-control" id="observation" placeholder="ecrire ici" formControlName="observation"></textarea>
+                        <div *ngIf="f.observation.touched && f.observation.invalid "
+                            class="text-danger">
+                            <div *ngIf="f.observation.errors.required"> <i
+                                    class="fa fa-exclamation-triangle" style="padding: 5px;"
+                                    aria-hidden="true"></i>observation  est obligatoire.</div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                      
+            
+                <div class="col-md-12">
+                    <div formArrayName="description" class="form-group">
+                        <div  *ngFor="let tache of description().controls; let i = index">
+                    <div [formGroupName]="i">
+                        <table class="table table-bordered" id="dynamic_field">  
+                            <tr>  
+                                <th> <label class="text">Date  <small class="text-danger font-13">*</small></label></th>
+                                <th><label class="text">tache  {{i+1}} : <small class="text-danger font-13">*</small></label> </th>
+                                <th><label class="text">Action <small class="text-danger font-13"></small></label></th>
+                           </tr>
+                           <tr>  
+                            <td> <input [min]="minDate"  type="datetime-local" class="form-control" id="date" formControlName="date"></td>
+                            <td><textarea type="text" class="form-control"   formControlName="tache" ></textarea></td>
+                        <td>
+                        <button (click)="removeTache(i)" class="btn btn-sm btn-danger"  style="margin:5px"><i class="fas fa-trash-alt"></i></button> 
+                        <button (click)="addTache()"class="btn btn-sm btn-success"  style="margin:5px"><i class="fa fa-plus" aria-hidden="true"></i> </button>
+                       </td>
+                </tr>
+                </table>
+                      
+            </div>
+            </div>
+            </div>
+            </div> 
+            <div class="float align-item-center mt-2">
+                <button class="btn btn-danger btn-round  waves-effect waves-light px-4 align-self-center report-btn" type="submit" routerLink='/list-intervention'>Annuler</button>
+            </div>
+            <div class="float align-item-center mt-2">
+                <button class="btn btn-info btn-round  waves-effect waves-light px-4 align-self-center report-btn" (click)="Save()" type="submit"> Créer l'intervention </button>
+            </div>
+            
+                                   
+            </div>
+        
+                    </form>
+
+                </div>
+            </div>
+      
+                  
+                    
+    
+                  
+      
+
+
+         </div>
+     </div>
+ </div>
+
+                    
+
+
+   
+
+                        

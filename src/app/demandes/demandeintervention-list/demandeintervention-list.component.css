@@ -1,0 +1,16 @@
+.badge badge-danger{
+    font-size:40px;
+
+}
+.card-card{
+    border: 5px solid #F1F1F1;
+    /*F1F1F1  F9F7D9   */
+}
+
+.btn btn-soft-danger btn-lg{padding-left: 70%;}
+.my-1{
+  color:#005F99;
+}
+.text-muted {
+    color:#04080a;
+}

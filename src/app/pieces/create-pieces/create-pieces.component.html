@@ -1,0 +1,131 @@
+
+<div class="row">
+    <!--end col-->
+
+       <div class="col-lg-12">
+           <div class="card">
+               <div class="card-body">
+                   <div class="">
+    <ol class="breadcrumb">
+        <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);" routerLink='/list-Pieces'>Liste</a></li>
+        <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"  ></a>Pieces Rechange </li>
+
+       <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"  ></a>Ajouter </li>
+    </ol>
+</div>
+<div class="container">                                  
+      <div class="inner-content">
+        <div class="media-body ml-3  align-self-center">
+            <h4 class="mb-1" style="color: #e83e8c; text-align:  center;" >Ajouter Pieces Rechange</h4>
+        </div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+   
+        <!-- <div class="form-group" >
+            <label for="code_PR_utilisee" style="color: black;">Code de piece</label>
+            <input
+                formControlName="code_PR_utilisee"
+                id="code_PR_utilisee"
+                type="text"
+                class="form-control">
+            <div *ngIf="f.code_PR_utilisee.touched && f.code_PR_utilisee.invalid"  class="text-danger">
+            <div *ngIf="f.code_PR_utilisee.errors.required"> <i class="fa fa-exclamation-triangle" style="padding: 5px;" aria-hidden="true"></i>code est obligatoire.</div>
+
+            </div>
+        </div> -->
+
+        <div class="form-group">
+            <label for="nom_piece" style="color: black;">libelle</label>
+            <input
+                formControlName="nom_piece"
+                id="nom_piece"
+                type="text"
+                class="form-control">
+            <div *ngIf="f.nom_piece.touched && f.nom_piece.invalid" class="text-danger">
+            <div *ngIf="f.nom_piece.errors.required"> <i class="fa fa-exclamation-triangle" style="padding: 5px;"  aria-hidden="true"></i>nom piece est obligatoire.</div>
+
+            </div>
+        </div>
+   
+        <div class="form-group">
+            <label for="quantite" style="color: black;">Quantité</label>
+            <input
+                formControlName="quantite"
+                id="quantite"
+                type="quantite"
+                class="form-control">
+    
+            <div *ngIf="f.quantite.touched && f.quantite.invalid"  class="text-danger">
+                <div *ngIf="f.quantite.errors.required"><i class="fa fa-exclamation-triangle" style="padding: 5px;"  aria-hidden="true"></i>quantite est obligatoire.</div>
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="tel" style="color: black;">Réference</label>
+            <input
+                formControlName="ref_piece"
+                id="ref_piece"
+                type="tel"
+                class="form-control">
+
+            <div *ngIf="f.ref_piece.touched && f.ref_piece.invalid"  class="text-danger">
+                <div *ngIf="f.ref_piece.errors.required"> <i class="fa fa-exclamation-triangle" style="padding: 5px;"  aria-hidden="true"></i>Réference est obligatoire.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="marque_piece" style="color: black;">Marque</label>
+            <input
+                formControlName="marque_piece"
+                id="marque_piece"
+                type="text"
+                class="form-control">
+
+            <div *ngIf="f.marque_piece.touched && f.marque_piece.invalid"  class="text-danger" >
+                <div *ngIf="f.marque_piece.errors.required"><i class="fa fa-exclamation-triangle" style="padding: 5px;"  aria-hidden="true"></i>
+                    marque  est obligatoire.</div>
+            </div>                             
+
+        </div>
+        <div class="form-group">
+            <label style="color: black;">Fournisseur <small class="text-danger font-13">*</small></label>
+
+            <div class="col-sm-12">
+                <select class="form-control" formControlName="fournisseur" id="fournisseur">
+                    <option disabled value="">Séléctionner  nom Fournisseur</option>
+                    <option *ngFor="let fournisseur_item of Fournisseur" [value]="fournisseur_item.id">
+                        {{fournisseur_item.nom}} {{fournisseur_item.prenom}}</option>
+                </select>
+                <div *ngIf="f.fournisseur.touched && f.fournisseur.invalid" class="text-danger">
+                    <div *ngIf="f.fournisseur.errors.required"> <i
+                            class="fa fa-exclamation-triangle" style="padding: 5px;"
+                            aria-hidden="true"></i>fournisseur est obligatoire</div>
+
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label  for="image" style="color: black;">Image</label>
+            <div class="custom-control custom-checkbox">
+                <input type="file" name="image" id="image"  formControlName="image"   (change)="onFileChange($event)" class="form-control"/>
+                <div *ngIf="f.image.touched && f.image.invalid"  class="text-danger">
+                    <div *ngIf="f.image.errors.required"> <i class="fa fa-exclamation-triangle" style="padding: 5px;" aria-hidden="true"></i>image est obligatoire.</div>
+                    </div>
+            </div>
+      </div>
+
+      <div class="float-right align-item-center mt-2">
+        <button class="btn btn-danger btn-round  waves-effect waves-light px-4 align-self-center report-btn" type="submit" routerLink='/list-Pieces'>Annuler</button>
+    </div>
+    <div class="float-right align-item-center mt-2">
+
+        <button class="btn btn-info btn-round  waves-effect waves-light px-4 align-self-center report-btn" type="submit" >Enregistrer</button>
+    </div>
+    </form>
+</div>    
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,80 @@
+<div class="row">
+    <!--end col-->
+
+       <div class="col-lg-12">
+           <div class="card">
+               <div class="card-body">
+                <div class="">
+                    <ol class="breadcrumb">
+                        <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);" routerLink='/technicien'>Liste</a></li>
+                        <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"  ></a>Technicien </li>
+                       <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"  ></a>Update </li>
+                    </ol>
+                </div> 
+                <div class="container wrapper wrapper2">
+                    <div class="row">
+                
+                        <!-- Form -->
+                        <div class="col-md-12">
+                            <div class="media-body ml-3  align-self-center">
+                                <h4 class="mb-1" style="color: #e83e8c; text-align:  center;" >Modifier Technicien</h4>
+                            </div>
+                               <form [formGroup]="updateTechnicienForm"  (ngSubmit)="submitForm()" >
+                                <div class="form-group">
+                                    <label  style="color: black;" >Nom</label>
+                                    <input type="text" id="nom" placeholder="create your name" formControlName="nom" class="form-control" >
+                                </div>
+                                <div class="form-group">
+                                    <label  style="color: black;">Prénom</label>
+                                    <input type="text" id="prenom" placeholder="create your prenom" formControlName="prenom" class="form-control" >
+                                </div>
+                                <div class="form-group">
+                                    <label  style="color: black;" >Email</label>
+                                    <input type="text" id="email" placeholder="create your email" formControlName="email" class="form-control" >
+                                </div>
+                                <div class="form-group">
+                                    <label  style="color: black;">Mot de passe</label>
+                                    <input type="text" id="password" formControlName="password" placeholder="create your password" class="form-control"  >
+                                </div>
+                                <div class="form-group">
+                                    <label  style="color: black;" >Grade</label>
+                                    <input type="text" id="grade" formControlName="grade" placeholder="create your grade" class="form-control"  >
+                                </div>
+
+                                <div class="form-group">
+                                    <label  style="color: black;" >Numéro Téléphone</label>
+                                    <input type="text" id="tel" formControlName="tel" placeholder="create your telephone" class="form-control"  >
+                                </div>
+
+                                <div class="form-group">
+                                    <label  for="service" style="color: black;"  >Atelier </label>
+        
+                                    <!-- <div class="col-sm-12"> -->
+                                        <select class="form-control" formControlName="service" id="service"  type="service">
+                                            <option disabled value="">Séléctionner l'atelier </option>
+                                            <option *ngFor="let service_item of Service" [value]="service_item.id">
+                                                {{service_item.nom_service}} </option>
+                                        </select>
+                                 
+                                    <!-- </div> -->
+                                </div>
+                               
+
+                                <div class="float-right align-item-center mt-2">
+
+                                    <button class="btn btn-danger btn-round  waves-effect waves-light px-4 align-self-center report-btn" routerLink='/technicien'>Annuler</button>
+                                </div>
+                                <div class="float-right align-item-center mt-2">
+        
+                                <button class="btn btn-info btn-round  waves-effect waves-light px-4 align-self-center report-btn" type="submit" >Enregistrer</button>
+                            </div>
+                                <!-- <button type="submit" class="btn btn-primary">Update</button> -->
+                            </form>
+                        </div>
+                
+                    </div>
+                </div>
+                            </div>
+</div>
+</div>
+</div>

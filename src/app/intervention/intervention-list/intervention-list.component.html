@@ -1,0 +1,445 @@
+<div class="row">
+    <!--end col-->
+
+       <div class="col-lg-12">
+           <div class="card">
+               <div class="card-body">
+
+                <div class="">
+                    <ol class="breadcrumb">
+                        <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"
+                            style="color:rgb(210, 30, 114)"   routerLink='/Viewintervention'>Suivi Intervention</a></li>
+                        <li class="d-inline-block align-middle mb-0 product-name"><a
+                                href="javascript:void(0);"></a>Intervention </li>
+                        <li class="d-inline-block align-middle mb-0 product-name"><a
+                                href="javascript:void(0);"></a>Liste  des interventions
+                        </li>
+                    </ol>
+                </div>
+
+                <h4 class="mt-0 header-title" style="margin:55px 0;color: rgb(210, 30, 114);text-align: center;">Liste des Interventions</h4>
+                <div class="row" >
+                    <!-- <div class="col-md-1 mb-3">
+                    </div> -->
+                   <div class="col-md-1 mb-3">
+                 </div> 
+                  
+                    <div class="custom-control">
+                        
+                        <label class="border-0" ><i class="mdi mdi-circle mr-1 text-info"></i>Terminer</label>
+                    </div>
+                    <div class="custom-control">
+                        
+                        <label class="border-0" ><i class="mdi mdi-circle mr-1 text-warning" ></i> En attente des pieces
+
+                        </label>
+                    </div>
+                        <div class="custom-control ">
+
+                        <label class="border-0"><i class="mdi mdi-circle mr-1 text-purple" ></i> En cours</label>
+                    </div>
+       
+                    <div class="custom-control">
+                        <label class="border-0" ><i class="mdi mdi-circle mr-1 text-pink" ></i>Arrêter
+                        </label>
+                    </div>
+                    
+                    <div class="custom-control">
+                        <label class="border-0" ><i class="mdi mdi-circle mr-1 text-dark"></i>Suspendu par administrateur
+                        </label>
+                    </div>
+                   
+                   
+                    
+
+                </div>
+                <div class="container">
+                    <div class="container custom-container-2">
+
+                <div class="col-md-12">
+                    <table id="datatableexample" class="table table-striped mb-0 text-center">
+                        <thead>
+                        <tr style=" background-color: #dbe6fd;color: white;" >                            <!-- <td><img src="http://127.0.0.1:1337/images/{{intervention.equipement.image}}"  class="rounded-circle thumb-sm mr-1" style=" width: 10px; height: 10px; ">{{admin.prenom}}</td> -->
+                            <th scope="col" ></th>
+
+                            <th scope="col" >Etat</th>
+                            <th scope="col" >Panne</th>
+                            <th scope="col" >Date  </th>
+                            <th scope="col" >Action</th>
+                            
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let intervention of Intervention " [ngClass]="{'bleue': intervention.etat === 'terminer'  ,'jaune': intervention.etat === 'en attente des pieces','move': intervention.etat == 'en cours','rouge': intervention.etat === 'arreter','gris': intervention.etat == 'suspenduAdmin'}" >
+ 
+                            <!-- <div  *ngIf= " intervention.etat ==  'en attente des pieces'" class="fa fa-warning text-danger"></div> -->
+                            <td     >
+                                <i *ngIf= " intervention.etat ==  'arreter' " class="fa fa-warning  text-danger"></i>
+                                <i *ngIf= " intervention.etat ==  'terminer' " class="fa fa-check  text-success"></i>
+                                <i *ngIf= " intervention.etat ==  'en cours' " class="fa fa-repeat  text-purple"></i>
+                                <i *ngIf= " intervention.etat ==  'suspenduAdmin' "class="fa fa-stop-circle text-dark"></i>
+                                <i *ngIf= " intervention.etat ==  'en attente des pieces' " 
+                                class="fa fa-warning  text-warning"></i> 
+                            </td>
+                            <td><span  [ngClass]="{'bg-info': intervention.etat === 'terminer'  ,'bg-warning': intervention.etat === 'en attente des pieces','bg-purple': intervention.etat === 'en cours','bg-danger': intervention.etat === 'arreter','bg-dark': intervention.etat === 'suspenduAdmin'}" class=" badge badge-success ">{{intervention.etat}} </span>
+                            </td>
+                            <td>{{intervention.ordreintervention.nature_de_travaux}}</td> 
+                            <td>{{intervention.date_debut  |date:'MM-dd-yyyy HH:mm'}}</td>
+                           
+                    
+                           <td>
+                           
+                     
+                            <button  *ngIf= " intervention.etat ==  'en cours'" type="button" class="btn-sm btn-warning btn-round"     style="margin:5px"   routerLink="/update-intervention/{{intervention.id}}" ><i class="fa fa-clipboard" aria-hidden="true"></i>Modifier rapport</button>
+                            <button  *ngIf= " intervention.etat ==  'en attente des pieces'" type="button" class="btn-sm btn-warning btn-round"     style="margin:5px"  routerLink="/modifierlistepiece/{{intervention.id}}" >Modifier liste de piéce demande</button>
+
+                            <button type="button" class="btn-sm btn-success btn-round"     style="margin:5px"  (click)="triggerModalView(modalData1,intervention.id)" ><i class="mdi mdi-eye "></i></button> 
+
+                            
+                           </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+             </div>
+            </div>    
+        </div>
+    </div>
+
+
+
+
+        <ng-template #modalData1 let-modal>
+            <div class="modal-header">                      
+                <h4 class="mt-0 header-title"  style="margin:55px 0;color: rgb(210, 30, 114);text-align: center;">  Détails des  interventions </h4>
+            </div>  
+
+            <div class="modal-body">
+                
+                <div class="card" style="margin: 20px;">
+                    <div class="card-body invoice-head"> 
+                        <div class="row">
+                            <div class="col-md-4 align-self-center">                                                
+                                <img src="assets/images/gmao.png" alt="logo-small" class="logo-sm mr-2" height="38">                                            
+                                <!-- <img src="assets/images/log.png" alt="logo-large" class="logo-lg" height="18">                                                -->
+                            </div>
+
+                            <div class="col-md-8">
+                                
+                                <ul class="list-inline mb-0 contact-detail float-right">                                                   
+                                    <li class="list-inline-item">
+                                        <div class="pl-3">
+                                            <i class="mdi mdi-web"></i>
+                                            <p class="text-muted mb-0">www.GMAO e-SAAD.com</p>
+                                        </div>                                                
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div class="pl-3">
+                                            <i class="mdi mdi-phone"></i>
+                                            <p class="text-muted mb-0">+216 {{Usertel}}</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="card-body">
+                        <h4 class="mt-0 header-title" style="margin:55px 0;color: rgb(210, 30, 114);text-align: center;"> Détails des  interventions</h4>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                    <div class="card card-body text-center">
+                                        
+
+                                        <h4 class="card-title mt-0" style=" color:#DB6400;">Informations sur intervention</h4>
+                                                                        
+                                        <div class="row">
+
+                                            <div class="col-md-4">
+                                                <h5 class="my-1">Date Debut</h5>
+                                                <p class="text mb-2"  style=" color:#111110;">{{intervention.date_debut}} </p>
+                                             </div>
+                                            <div class="col-md-4">
+    
+                                                <h5 class="my-1"> Observation </h5>
+                                                <p class="text mb-2"  style=" color:#111110;">{{intervention.observation}}</p>
+                                            </div>
+                                            <div class="col-md-4">
+    
+                                                <h5 class="my-1"> Etat</h5>
+                                                <p class="text mb-2" style=" color:#111110;" >{{intervention.etat}}</p>
+                                            </div>
+                           
+                                    </div><!--end card-body-->
+
+                                </div><!--end card-->
+
+                           <!--end col-->
+                            </div>
+
+
+
+
+                            <div class="col-lg-12"  *ngIf="Userrole=='admin'" >
+                                    <div class="card card-body text-center">
+                                        
+                                      
+                                        <h4 class="card-title mt-0" style=" color:#DB6400;">Informations Technicien</h4>
+                                        <p class="card-text"></p>                                        
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                               <h5 class="my-1"> Nom & Prénom </h5>
+                                               <p class="text mb-2" style=" color:#111110;">                                              
+                                               {{intervention.tech.nom}}  {{intervention.tech.prenom}}                                                                </p>
+                                           </div>
+                                           
+                                           <div class="col-md-4">
+        
+                                               <h5 class="my-1">Téléphone </h5>
+                                               <p class="text mb-2" style=" color:#111110;">        
+                                               {{intervention.tech.tel}} 
+                                           </p>
+                                           </div>
+                                           <div class="col-md-4">
+        
+                                               <h5 class="my-1">Grade </h5>
+                                               <p class="text mb-2" style=" color:#111110;">        
+                                                   {{intervention.tech.grade}}  
+                                            </p>
+                                           </div>
+                                           <!-- <div class="col-md-3">
+        
+                                               <h5 class="my-1">Service </h5>
+                                               <p class="text-muted mb-2">   
+
+                                               {{intervention.tech.service.nom_service }}
+                                           </p>
+                                           </div> -->
+                                           
+                                    </div><!--end card-body-->
+                                </div><!--end card-->
+
+                            <!--end col-->
+                            </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                        <div class="card card-body text-center">
+                                            <h4 class="card-title mt-0" style=" color:#DB6400;"> Information sur equipement
+                                            </h4>
+                                            <p class="card-text"></p>                                        
+                                            <div class="row">
+    
+                                                <div class="col-md-3">
+                                                    <h5 class="my-1">libelle </h5>
+                                                    <p class="text mb-2"  style=" color:#111110;">
+                                                        {{intervention.dem.equipement.libelle}}
+                                                        </p>
+                                                 </div>
+                                                <div class="col-md-3">
+        
+                                                    <h5 class="my-1"> numero_model</h5>
+                                                    <p class="text mb-2"  style=" color:#111110;">
+                                                        {{intervention.dem.equipement.numero_model}}
+
+                                                    </p>
+                                                </div>
+                                               
+                                                <div class="col-md-3">
+        
+                                                    <h5 class="my-1"> numero_serie</h5>
+                                                    <p class="text mb-2"  style=" color:#111110;"> 
+                                                        {{intervention.dem.equipement.numero_serie}}
+                                                       </p>
+                                                </div>
+                                                <div class="col-md-3">
+        
+                                                   <h5 class="my-1"> marque</h5>
+                                                   <p class="text mb-2"  style=" color:#111110;">
+                                                        {{intervention.dem.equipement.marque}}
+                                                       </p>
+                                               </div>
+                                               
+                                        </div><!--end card-body-->
+                                    </div><!--end card-->
+
+                               <!--end col-->
+
+                           
+
+                                </div>
+                                </div>
+
+                                <div class="row">
+                                   <div class="col-lg-12">
+                                           <div class="card card-body text-center">
+                                               
+                                             
+                                               <h4 class="card-title mt-0" style=" color:#DB6400;">Informations liee au activation des equipements 
+                                               </h4>
+                                               <div class="pricingTable1 text-center" >
+                                           
+                                                   <img src ="http://127.0.0.1:1337/images/{{intervention.dem.equipement.image}}"  alt="" class=" mx-auto  d-block"  width ="200" height="200">
+                                                   <p class="card-text"></p>                                        
+                                                   <div class="row">
+
+                                                   <!-- <div class="col-md-4">
+                                                       <h5 class="my-1">duree en service</h5>
+                                                       <p class="text mb-2">
+                                                           {{intervention.dem.equipement.duree_en_service}}
+                                                        </p>
+                                                    </div> -->
+                                                    
+                                                    <div class="col-md-6">
+                                                       <h5 class="my-1">date en service</h5>
+                                                       <p class="text mb-2"  style=" color:#111110;">
+                                                           {{intervention.dem.equipement.date_en_service}}
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                       <h5 class="my-1">Service</h5>
+                                                       <p class="text mb-2"  style=" color:#111110;">
+                                                           {{intervention.tech.service.nom_service}}
+                                                        </p>
+                                                    </div>
+                                </div>
+                                </div>
+                               </div>
+                                
+                                </div>
+                                </div>
+                            
+                           <div class="row"  [hidden]="ordreintervention.etat==='bien recu' || ordreintervention.etat==='rejetee' || ordreintervention.etat==='en cours' || ordreintervention.etat==='arreter'">
+                               <div class="col-lg-12" >
+                                       <div class="card card-body text-center">
+                                    <h4 class="card-title mt-0" style=" color:#DB6400;"> Informations sur Les taches réaliser 
+                                    </h4>
+                                   <p class="card-text"></p>                                        
+                           <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample" *ngFor="let tache of intervention.taches">
+                               <div class="">
+                                   <div class="tracking-timeline">
+                                       <ul class="timeline mt-4" >
+
+                                           <li>
+                                               <p class="timeline-date" style=" color:#070707;">{{tache.date | date:'MM-dd-yyyy HH:mm'}}</p>
+                                               <div class="timeline-content">
+                                                   <div class="track-info">
+                                                       <h5 class="mt-0 mb-1" style="  color:#005F99;">Tache </h5>
+                                                       <p class="mb-0" style=" color:#070707;">{{tache.description}}</p>
+                                                   </div>  
+                                               </div>
+                                           </li>
+                                           <!-- <li>
+                                               <p class="timeline-date">3 March 2019</p>
+                                               <div class="timeline-content">
+                                                   <div class="track-info">
+                                                       <div class="text-muted float-right">
+                                                           <p class="mb-1">4:35PM</p>
+                                                           <span>T-No:6574148212355</span>
+                                                       </div>
+                                                       <h5 class="mt-0 mb-1">Delivered </h5>
+                                                       <p class="mb-0">Gujarat, India</p>
+                                                   </div>                                                         
+                                               </div>
+                                           </li> -->
+   
+                                                   </ul>
+                                                   </div>
+                   </div>
+                   </div>
+                   </div>
+                   </div>
+                   </div>
+
+                   <div  *ngIf="Userrole==='admin'" class="text-center">
+                       <button *ngIf="intervention.etat == 'en cours'"   style="margin-left: 0 " type="button"
+                        (click)="SuspenduAdmin(intervention.dem.id,intervention.ordreintervention.id,intervention.id,intervention.dem.equipement.id)"  class="btn-xl btn-block btn btn-purple waves-effect waves-light"><i class="fa fa-times" aria-hidden="true"></i>ARRETER</button>            
+                   </div>
+                                    </div>
+                                
+                                    </div>
+                                  
+            </div>
+            
+        <div class="modal-footer">
+            <input type="button" class="btn btn-danger" data-dismiss="modal" (click)="modal.close('Save click')"  value="Fermer">
+            </div> 
+        
+        
+          
+            
+           
+       
+       
+        </ng-template> 
+
+
+        <ng-template #modalData2 let-modal>
+            <div class="modal-header">
+                <h3 class="modal-title">Modifier liste de piéce demande</h3>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="form2" (ngSubmit)="submit()">
+                    <div formArrayName="quantite">
+                        <div class="row mb-3" *ngFor="let qte of quantite().controls; let i = index" [formGroupName]="i">
+        
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="quantite" style="color: black;">Piéce : <small
+                                                class="text-danger font-13">*</small></label>
+                                        <!-- <div class="col-sm-9"> formControlName="quantite" formArrayName="quantite"-->
+                                        <select formControlName="piece" type="text" class="form-control">
+                                            <option hidden selected value="0">Choisir ici ...</option>
+                                            <option *ngFor="let x of dropdownList" [value]="x.item_id">{{x.item_text}}</option>
+                                        </select>
+                                        <!-- </div> -->
+        
+                                    </div>
+        
+                                    <div class="col-md-4">
+        
+        
+                                        <label for="quantite" style="color: black;">Quantité <small
+                                                class="text-danger font-13">*</small></label>
+                                        <!-- <div class="col-sm-9"> formControlName="quantite" formArrayName="quantite"-->
+                                        <input formControlName="quantite" type="text" class="form-control">
+                                        <!-- </div> -->
+        
+                                    </div>
+        
+                                    <div class="col-md-4 text-center">
+        
+                                        <label for="quantite" style="color: black;margin-top:2.5rem;"> </label>
+        
+        
+                                        <button (click)="removeQuantite(i)" class="btn btn-sm btn-danger" style="margin:5px"><i
+                                                class="fas fa-trash-alt"></i></button>
+                                        <button (click)="addQuantite($event)" class="btn btn-sm btn-success"
+                                            style="margin:5px"><i class="fa fa-plus" aria-hidden="true"></i> </button>
+        
+        
+        
+                                    </div>
+        
+        
+        
+                                </div>
+        
+                            </div>
+        
+        
+        
+        
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <input type="button" class="btn btn-default" data-dismiss="modal" (click)="modal.close('Save click')" value="Annuler">
+                <input type="button" class="btn btn-danger" value="Modifier" (click)="Updatestatus(intervention.id)">
+            </div>
+        </ng-template>

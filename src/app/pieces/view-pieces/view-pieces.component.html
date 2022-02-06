@@ -1,0 +1,56 @@
+<div class="row">
+    <!--end col-->
+
+       <div class="col-lg-12">
+           <div class="card">
+               <div class="card-body">
+                <h4 class="mt-0 header-title"  style="margin:55px 0;color: rgb(210, 30, 114);text-align: center;"> Détails </h4>
+                <div class="">
+                    <ol class="breadcrumb">
+                        <li class="d-inline-block align-middle mb-0 product-name"     ><a href="javascript:void(0);" routerLink='/list-Pieces' >Liste</a></li>
+                        <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"  ></a>Piéce Réchange </li>
+                       <li class="d-inline-block align-middle mb-0 product-name" style="color:rgb(210, 30, 114)"><a href="javascript:void(0);"  ></a>Détails </li>
+                    </ol>
+                </div>  
+
+                
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img   src ="http://127.0.0.1:1337/images/{{pieceRechange.image}}"  alt="" class=" mx-auto  d-block"  width ="400" height="400">
+                        <div class="row">
+                            <div class="col-sm-4">
+
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4"></div>
+                        </div>
+                    </div><!--end col-->
+
+                <div class="col-lg-6 align-self-center">
+                    <div class="single-pro-detail">
+                        <p class="mb-1">Détail</p>
+                        <div class="custom-border"></div>
+                        <h3 class="pro-title">{{pieceRechange.nom_piece}}r</h3>
+                        <p class="text-muted mb-2"></p> 
+                        <h2 class="pro-price"> <span><del></del></span><small class="text-danger font-weight-bold ml-2"></small></h2> 
+                        
+                       
+                        
+                        <h6 class=" pro-price">Caracteristique :</h6> 
+                        <ul class="list-unstyled pro-features border-0">
+                            <li  class=" text font-13" style="color: black;">Référence:{{pieceRechange.ref_piece}}</li>
+                            <li  class=" font-13" style="color: black;">Marque:{{pieceRechange.marque_piece}} </li>
+                            <li  class=" font-13" style="color: black;">Code:{{pieceRechange.code_PR_utilisee}}</li>
+                            <li  class=" font-13" style="color: black;">Quantite:{{pieceRechange.quantite}}</li>
+                        </ul>
+                         
+                       
+                       
+                                                               
+                    </div>
+           
+            </div>
+            </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,61 @@
+/********************une seul ligne sur panne ...*************/
+ 
+.colp{
+    white-space: nowrap;  
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    text-overflow:ellipsis;
+    text-align:center; 
+    clear: both;
+    
+  }
+  .btn{
+    margin-left: 10px;
+  }
+
+    
+  .well {
+    background-color: #ffffee
+  }
+  
+  #content {
+    padding: 15% 15% 5%;  
+  }
+  
+  .search-form {
+    border-radius: 30px 0 0 30px;
+  }
+  
+  .input-group {
+    width:100%;
+  }
+  
+  input-group-btn {
+    max-width:38px;
+  }
+  
+  #search {
+    border: 2px;
+  }
+  
+  .search-btn {
+    cursor:pointer;
+    border-radius: 0 30px 30px 0; 
+    background-color:#FDE49C;
+    color:#669;
+    
+  }
+  
+  .text-center {
+    color: #fff;
+  }
+          
+ .text-center {
+    color: #fff;
+          }
+.d-flex{
+     font-size: 15px;
+     padding-top: 30px;
+    align: right;
+    }
+    .gris{background-color:#7F7C82 !important ;}

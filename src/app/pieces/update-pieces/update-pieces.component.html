@@ -1,0 +1,111 @@
+<div class="row">
+    <!--end col-->
+
+       <div class="col-lg-12">
+           <div class="card">
+               <div class="card-body">
+                <h4 class="mb-1" style="color: rgb(210, 30, 114); text-align:  center;" >Modifier Piéce Rechange</h4>
+
+                <div class="">
+                    <ol class="breadcrumb">
+                        <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);" routerLink='/list-Pieces'>Liste</a></li>
+                        <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"  ></a>Pieces Rechange </li>
+                
+                       <li class="d-inline-block align-middle mb-0 product-name" style="color: rgb(210, 30, 114);"><a href="javascript:void(0);"  ></a>Modifier Piéce  </li>
+                    </ol>
+                </div>
+                <div class="container">                                  
+                      <div class="inner-content">
+                        <div class="media-body ml-3  align-self-center">
+                        </div>
+                
+                    <form [formGroup]="updateForm" (ngSubmit)="submit()">
+                   
+                        <!-- <div class="form-group" >
+                            <label for="code_PR_utilisee" style="color: black;">Code de piece</label>
+                            <input
+                                formControlName="code_PR_utilisee"
+                                id="code_PR_utilisee"
+                                type="text"
+                                class="form-control">
+                   
+                        </div> -->
+                
+                        <div class="form-group">
+                            <label for="nom_piece" style="color: black;">libelle</label>
+                            <input
+                                formControlName="nom_piece"
+                                id="nom_piece"
+                                type="text"
+                                class="form-control">
+                            
+                        </div>
+                   
+                        <div class="form-group">
+                            <label for="quantite" style="color: black;">Quantité</label>
+                            <input
+                                formControlName="quantite"
+                                id="quantite"
+                                type="quantite"
+                                class="form-control">
+                    
+                           
+                        </div>
+                
+                
+                        <div class="form-group">
+                            <label for="tel" style="color: black;">Réference</label>
+                            <input
+                                formControlName="ref_piece"
+                                id="ref_piece"
+                                type="tel"
+                                class="form-control">
+                
+                            
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="marque_piece" style="color: black;">Marque</label>
+                            <input
+                                formControlName="marque_piece"
+                                id="marque_piece"
+                                type="text"
+                                class="form-control">
+                
+                                                        
+                
+                        </div>
+                        <div class="form-group">
+                            <label style="color: black;" >Fournisseur <small class="text-danger font-13">*</small></label>
+                
+                            <div class="col-sm-12">
+                                <select class="form-control" formControlName="fournisseur" id="fournisseur">
+                                    <option disabled value="">Séléctionner votre nom Fournisseur</option>
+                                    <option *ngFor="let fournisseur_item of Fournisseur" [value]="fournisseur_item.id">
+                                        {{fournisseur_item.nom}} {{fournisseur_item.prenom}}</option>
+                                </select>
+                               
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  for="image" style="color: black;">Image</label>
+                            <div class="custom-control custom-checkbox">
+                                <img src="{{url}}"  class="img"/>
+
+                                <input type="file" name="image" id="image"    (change)="onFileChange($event)" class="form-control"/>
+                                
+                            </div>
+                      </div>
+
+                      <div class="float-right align-item-center mt-2">
+                        <button class="btn btn-danger btn-round  waves-effect waves-light px-4 align-self-center report-btn" type="submit" routerLink='/list-Pieces'>Annuler</button>
+                    </div>
+                    <div class="float-right align-item-center mt-2">
+                
+                        <button class="btn btn-info btn-round  waves-effect waves-light px-4 align-self-center report-btn" type="submit" >Enregistrer</button>
+                    </div>
+                        <!-- <button class="btn btn-primary" type="submit" >Submit</button> -->
+                    </form>
+                
+</div>
+</div>

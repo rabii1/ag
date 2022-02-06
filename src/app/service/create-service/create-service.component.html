@@ -1,0 +1,56 @@
+<div class="row">
+    <!--end col-->
+    
+       <div class="col-lg-12">
+           
+           <div class="card">
+               <div class="card-body">
+              
+                <div class="">
+                    <ol class="breadcrumb">
+                        <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);" routerLink='/service'>Liste</a></li>
+                        <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"  ></a>Service </li>
+
+                       <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"  ></a>Ajouter </li>
+                    </ol>
+                </div>
+                <div class="container">                                  
+                      <div class="inner-content">
+                        <div class="media-body ml-3  align-self-center">
+                            <h4 class="mb-1" style="color: #e83e8c; text-align:  center;" >Ajouter Service</h4>
+                        </div>
+                
+                    <form [formGroup]="form" (ngSubmit)="submit()">
+                   
+                        <div class="form-group" >
+                            <label for="nom_service" style="color: black;">Nom Service</label>
+                            <input
+                                formControlName="nom_service"
+                                id="nom_service"
+                                type="text"
+                                class="form-control">
+                            <div *ngIf="f.nom_service.touched && f.nom_service.invalid"  class="text-danger">
+                            <div *ngIf="f.nom_service.errors.required"> <i class="fa fa-exclamation-triangle" style="padding: 5px;" aria-hidden="true"></i>Nom service est obligatoire.</div>
+                
+                            </div>
+                        </div>
+
+                      
+
+                        <div class="float-right align-item-center mt-2">
+
+                            <button class="btn btn-info btn-round  waves-effect waves-light px-4 align-self-center report-btn" type="submit" >Enregistrer</button>
+                        </div>
+
+                        <div class="float-right align-item-center mt-2">
+                            <button class="btn btn-danger btn-round  waves-effect waves-light px-4 align-self-center report-btn" type="submit" routerLink='/service'>Annuler</button>
+                        </div>
+                      
+
+                    </form>
+                </div>    
+             </div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,9 @@
+.name{
+    color: black;
+}
+.desg{
+    height: 300px; width:500px; padding: 20px;   display: block;
+                     margin-left: 200px; 
+}
+
+.float-right{padding: 20px;}

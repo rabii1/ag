@@ -1,0 +1,132 @@
+<div class="row">
+    <!--end col-->
+    
+       <div class="col-lg-12">
+           
+           <div class="card">
+               <div class="card-body">
+                
+                <div class="">
+                    <ol class="breadcrumb">
+                        <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);" routerLink='/profil'>Mon Compte</a></li>
+                        <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"  ></a>Profil </li>
+                       <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"  ></a>Modifier </li>
+                    </ol>
+                </div>
+                
+                <div class="ribbon-1">
+                    <div class="ribbon-box">
+                        <div class="ribbon ribbon-mark bg-info">Modifier profil</div>
+
+                        <form  [formGroup]="updateProfilForm"  (ngSubmit)="submitForm()">
+                            <div class="form-group row" >  
+                                <div class="image" id ="left">  
+                                    <img src="assets/images/userN.png"  />
+
+                                    </div>                                                      
+                                <div  class="col-md-10 content1" >
+
+                                   
+                                    <div class="col-md-6">
+                                        <label for="exampleInputPassword1">Nom</label>
+                                        <div class="input-group mb-2 mb-md-0">
+                                            <div class="input-group-prepend">                                                            
+                                                <span class="input-group-text">
+                                                <i class="far fa-user"></i>                                                                                                    
+                                                </span>                                                           
+                                            </div>
+                                            <input type="text" id="nom" placeholder="update your name" formControlName="nom" class="form-control" >
+                                        </div>
+                                        </div>
+                               
+
+                                <div class="col-md-6">
+                                <label for="exampleInputPassword1">Prenom</label>
+                                <div class="input-group mb-2 mb-md-0">
+                                    <div class="input-group-prepend">                                                            
+                                        <span class="input-group-text">
+                                            <i class="far fa-user"></i>                                                                                                        
+                                        </span>                                                           
+                                    </div>
+                                    <input type="text" id="prenom" placeholder="update your prenom" formControlName="prenom" class="form-control" >
+                                </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="exampleInputPassword1">Email</label>
+                                    <div class="input-group mb-2 mb-md-0">
+                                        <div class="input-group-prepend">                                                            
+                                            <span class="input-group-text">
+                                                @
+                                            </span>                                                           
+                                        </div>
+                                        <input  type="text" id="email" placeholder="update your email" formControlName="email" class="form-control">
+                                    </div>
+                                    </div> 
+
+                                <div class="col-md-6">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <div class="input-group mb-2 mb-md-0">
+                                        <div class="input-group-prepend">                                                            
+                                            <span class="input-group-text">
+                                                <i class="mdi mdi-key"></i>
+                                            </span>                                                           
+                                        </div>
+                                        <input type="text" id="password" formControlName="password" placeholder="update your password" class="form-control" >
+                                    </div>
+                                    </div>
+
+                                    <div  *ngIf="Userrole=='superadmin'||'admin'||'employee' && Userrole!=='technicien'" class="col-md-6">
+                                        <label for="exampleInputPassword1">Téléphone</label>
+                                        <div class="input-group mb-2 mb-md-0">
+                                            <div class="input-group-prepend">                                                            
+                                                <span class="input-group-text">
+                                                    <i class="mdi mdi-cellphone-basic"></i>
+                                                </span>                                                           
+                                            </div>
+                                            <input type="text" id="tel" formControlName="tel" placeholder="update your tel" class="form-control" >
+                                        </div>
+                                        </div>
+
+                                        <div *ngIf="Userrole=='superadmin'" class="col-md-6">
+                                            <label for="exampleInputPassword1">Fax</label>
+                                            <div class="input-group mb-2 mb-md-0">
+                                                <div class="input-group-prepend">                                                            
+                                                    <span class="input-group-text">
+                                                        <i class="mdi mdi-phone-classic"></i>
+
+                                                    </span>                                                           
+                                                </div>
+                                                <input type="text" id="fax" formControlName="fax" placeholder="update your fax" class="form-control" >
+                                            </div>
+                                            </div>
+        
+                                            <div *ngIf="Userrole=='technicien'" class="col-md-6">
+                                                <label for="exampleInputPassword1">Grade</label>
+                                                <div class="input-group mb-2 mb-md-0">
+                                                    <div class="input-group-prepend">                                                            
+                                                        <span class="input-group-text">
+                                                            <i class="mdi mdi-phone-classic"></i>
+    
+                                                        </span>                                                           
+                                                    </div>
+                                                    <input type="text" id="grade" formControlName="grade" placeholder="update your fax" class="form-control" >
+                                                </div>
+                                                </div>
+    
+
+                                    <button class="btn btn-info btn-round  waves-effect waves-light" type="submit" style="margin: 3%;" >Enregistrer</button>
+                                    <button class="btn btn-danger btn-round  waves-effect waves-light" type="button"  style="margin: 3%;" routerLink='/profil' >Annuler</button>
+                               
+                          </div>
+                          </div>
+                        
+                           
+                        </form>
+            
+
+                </div>
+</div>
+</div>
+</div>
+</div>
+</div>

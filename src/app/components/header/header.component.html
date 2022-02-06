@@ -1,0 +1,139 @@
+<!-- Top Bar Start -->
+<div class="topbar">
+    <!-- Navbar -->
+    <nav class="navbar-custom">
+
+       <!-- LOGO -->
+       <div class="topbar-left">
+           <a routerLink='/home' class="logo">
+               <span>
+                   <img src="assets/images/gmao.png" alt="logo-small" class="logo-sm" style="height:55px;">
+               </span>
+               <span>
+                   <!-- <img src="assets/images/log.png" alt="logo-large" class="logo-lg"> -->
+               </span>
+           </a>
+       </div>
+
+       <ul   class="list-unstyled topbar-nav float-right mb-0">
+
+           <li *ngIf="Userrole=='admin'" class="dropdown">
+               <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button"
+                   aria-haspopup="false" aria-expanded="false">
+                   <i class="mdi mdi-bell-outline nav-icon"></i>
+                   <span *ngIf="NBordre != 0" class="badge badge-danger badge-pill noti-icon-badge">{{NBordre}}</span>
+               </a>
+               <div  *ngIf="Userrole=='admin'"class="dropdown-menu dropdown-menu-right dropdown-lg">
+                   <!-- item-->
+                   <h6 class="dropdown-item-text">
+                        Vous avez : 
+                   </h6>
+                   <div class="slimscroll notification-list">
+                    <!-- item-->
+                    <a href="#" routerLink='/demandeNontraiter' class="dropdown-item notify-item active" >
+                        <div class="image"><img src="../../assets/images/dem.jpg" alt="equipement" class="rounded-circle thumb-sm"> 
+                        </div>
+                        <h6    style="margin-top: -28px;"  class="notify-details"> <strong>{{ordreintervention.demande}}</strong> Demande intervention  <small class="text"></small></h6>
+                        <p   class="notify-details">  initiale | re-initialiser | en cours<small class="text-muted"> </small></p>
+
+                    </a>
+                    <a href="#" routerLink='/list-Ordre' class="dropdown-item notify-item active" >
+                        <div class="image"><img src="../../assets/images/o.jpg" alt="equipement" class="rounded-circle thumb-sm"> 
+                        </div>
+                        <h6    style="margin-top: -28px;"  class="notify-details">  <strong>{{ordreintervention.ordre}}</strong> Ordre d'intervention  <small class="text"></small></h6>
+                        <p   class="notify-details">Bien reçu | rejeter  <small class="text-muted"> </small></p>
+
+                    </a>
+                    <a href="#" routerLink='/list-intervention' class="dropdown-item notify-item active" >
+                        <div class="image"><img src="../../assets/images/int.png" alt="equipement" class="rounded-circle thumb-sm"> 
+                        </div>
+                        <h6    style="margin-top: -28px;"  class="notify-details">  <strong>{{ordreintervention.intervention}}</strong>   Interventions  <small class="text"></small></h6>
+                        <p   class="notify-details">arréter | en attente des pieces <small class="text-muted"> </small></p>
+
+                    </a>
+         
+                  
+                   </div>
+               </div>
+           </li>
+
+           <li class="dropdown">
+               <a class="nav-link dropdown-toggle waves-effect waves-lgiht nav-user" data-toggle="dropdown" href="#" role="button"
+                   aria-haspopup="false" aria-expanded="false">
+                   <img src="assets/images/userN.png" alt="profile-user" class="rounded-circle" /> 
+                   <span class="ml-1 nav-user-name hidden-sm"> <i class="mdi mdi-chevron-down"></i> </span>
+               </a>
+               <div class="dropdown-menu dropdown-menu-right">
+                <a  href="javascript: void(0);" class="dropdown-item"  routerLink='/profil'><i class="dripicons-user text-muted mr-2"></i> Profil</a>
+
+                   <a   href="javascript: void(0);" class="dropdown-item"  (click)="deconnexion()" ><i class="dripicons-exit text-muted mr-2"></i> Logout</a>
+               </div>
+           </li>
+       </ul>
+
+       <ul class="list-unstyled topbar-nav mb-0">
+               
+           <li>
+               <button class="button-menu-mobile nav-link waves-effect waves-light">
+                   <i class="mdi mdi-menu nav-icon"></i>
+               </button>
+           </li>
+
+          
+       </ul>
+
+   </nav>
+   <!-- end navbar-->
+</div>
+<!-- Top Bar End -->
+<div class="page-wrapper-img">
+    <div class="page-wrapper-img-inner">
+        <div class="sidebar-user media">                    
+            <img src="assets/images/userN.png" alt="user" class="rounded-circle img-thumbnail mb-1">
+            <span class="online-icon"><i class="mdi mdi-record text-success"></i></span>
+            <div class="media-body">
+                <h5 class="text-light"   > {{ userNom}}   </h5>
+                <ul class="list-unstyled list-inline mb-0 mt-2">
+                    <li class="list-inline-item">
+                        <a href="javascript: void(0);" class=" " routerLink="/profil"><i class="mdi mdi-account text-light"></i></a>
+                    </li>
+                  
+                    <li class="list-inline-item">
+                        <a href="javascript: void(0);" class="" (click)="deconnexion()" ><i class="mdi mdi-power text-danger"></i></a>
+                    </li>
+                </ul>
+            </div>                    
+        </div>
+        <!-- Page-Title -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-title-box">
+                    <div class="float-right align-item-center mt-2">
+                        <!-- <button class="btn btn-info px-4 align-self-center report-btn">Creat Report</button> -->
+                    </div>
+                    <h4  class="page-title mb-2" >
+                        <!-- <i class="mdi mdi-monitor mr-2"></i> -->
+                        {{title}} </h4>  
+                        
+                    <div class="">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0);"  routerLink='/home'>GMAO e-SAAD</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);" >{{title}} </a></li>
+                         <!-- <li class="breadcrumb-item active">{{title}}</li>  -->
+                        </ol>
+                    </div>     
+                    
+                    
+
+                        
+                  
+                            <!-- <li class="breadcrumb-item active">Dashboard 1</li> -->
+                     
+
+
+                </div>
+            </div>
+        </div>
+        <!-- end page title end breadcrumb -->
+    </div>
+</div>

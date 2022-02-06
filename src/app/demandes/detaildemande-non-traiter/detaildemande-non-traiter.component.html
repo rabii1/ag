@@ -1,0 +1,318 @@
+<div class="row">
+    <!--end col-->
+
+       <div class="col-lg-12">
+           <div class="card">
+               <div class="card-body">
+                <div class="card-body">
+              
+                    <div class="">
+                        <ol class="breadcrumb">
+                            <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);" routerLink='/demandeNontraiter' style="color:rgb(210, 30, 114)">Liste des demandes</a></li>
+                            <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"  ></a>Demande d'intervention </li>
+                           <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"  ></a>Détails </li>
+                        </ol>
+                    </div>  
+              
+
+                    <div class="card">
+                        <div class="card-body invoice-head"> 
+                            <div class="row">
+                                <div class="col-md-4 align-self-center">                                                
+                                    <img src="assets/images/gmao.png" alt="logo-small" class="logo-sm mr-2" height="38">                                            
+                                    <!-- <img src="assets/images/log.png" alt="logo-large" class="logo-lg" height="18">                                                -->
+                                </div>
+                                <div class="col-md-8">
+                                    
+                                    <ul class="list-inline mb-0 contact-detail float-right">                                                   
+                                        <li class="list-inline-item">
+                                            <div class="pl-3">
+                                                <i class="mdi mdi-web"></i>
+                                                <p class="text-muted mb-0">www.GMAO e-SAAD.com</p>
+                                            </div>                                                
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <div class="pl-3">
+                                                <i class="mdi mdi-phone"></i>
+                                                <p class="text-muted mb-0">+216 {{Usertel}}</p>
+                                            </div>
+                                        </li>
+                                        
+                                        <li class="list-inline-item">
+
+                                            <div class="pl-3">
+                                                <i class="mdi mdi-map-marker"></i>
+                                                <p class="text-muted mb-0">{{Useradresse}}</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="card-body">
+                            <h4 class="mt-0 header-title"  style="margin:55px 0;color: rgb(210, 30, 114);text-align: center;"> Détails de demande  interventions planifié</h4>
+
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="">
+                                    <div class="tracking-timeline">
+                                        <ul class="timeline mt-4">
+                                            <li>
+                                                <p class="timeline-date">   {{demandeIntervention.date}}  </p>
+                                                <div class="timeline-content">
+                                                    <div class="track-info">
+                                                        <div class="text-muted float-right">
+                                                            <p class="mb-1"></p>
+                                                            <span></span>
+                                                        </div>
+                                                        <h5 class="mt-0 mb-1">ETAT </h5>
+                                                        <span class="badge badge-danger" style=" font-size:15px;">{{demandeIntervention.ordreinterventions[0].degre}}</span>
+                                                    </div> 
+                                                    </div> 
+                                                    </li>
+                                                    </ul>
+                                                    </div>
+                    </div>
+                    </div>
+      
+
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card card-body text-center">
+                                            
+
+                                            <h4 class="card-title mt-0">Informations de contact</h4>
+                                            <p class="card-text"></p>                                        
+                                            <div class="row">
+    
+                                                <div class="col-md-4">
+                                                    <h5 class="my-1">Nom </h5>
+                                                    <p class="text-muted mb-2">{{Usernom}} {{Userprenom}}</p>
+                                                 </div>
+                                                <div class="col-md-4">
+        
+                                                    <h5 class="my-1"> Téléphone</h5>
+                                                    <p class="text-muted mb-2">{{Usertel}}</p>
+                                                </div>
+                                                <div class="col-md-4">
+        
+                                                    <h5 class="my-1"> Email</h5>
+                                                    <p class="text-muted mb-2">{{Useremail}}</p>
+                                                </div>
+                                        </div><!--end card-body-->
+
+                                    </div><!--end card-->
+                                    <p class="card-footer bg-light m-0">Informations de contact - GMAO</p>
+
+                                </div><!--end col-->
+                                </div>
+    
+    
+    
+    
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card card-body text-center">
+                                            
+                                          
+                                            <h4 class="card-title mt-0">Informations intervention</h4>
+                                            <p class="card-text"></p>                                        
+                                            <div class="row">
+    
+                                                <div class="col-md-4">
+                                                    <h5 class="my-1">Type </h5>
+                                                    <p class="text-muted mb-2">{{demandeIntervention.panne}}</p>
+                                                 </div>
+                                                <div class="col-md-4">
+        
+                                                    <h5 class="my-1"> Réaliser par</h5>
+                                                    <p class="text-muted mb-2">{{Usernom}} {{Userprenom}}</p>
+                                                </div>
+                                                <div class="col-md-4">
+        
+                                                    <h5 class="my-1"> 	Date d'ajout</h5>
+                                                    <p class="text-muted mb-2">                                              
+                                                    {{demandeIntervention.date}}                                                                 </p>
+                                                </div>
+                                        </div><!--end card-body-->
+                                    </div><!--end card-->
+                                    <p class="card-footer bg-light m-0">Informations intervention - GMAO</p>
+
+                                </div><!--end col-->
+                                </div>
+                                </div>
+    
+    
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="card">
+                                            <div class="card card-body text-center">
+                                                
+                                              
+                                                <h4 class="card-title mt-0"> Note d'intervention
+                                                </h4>
+                                                <p class="card-text"></p>                                        
+                                                <div class="row">
+        
+                                                    <div class="col-md-4">
+                                                        <h5 class="my-1">Description </h5>
+                                                        <p class="text-muted mb-2">{{demandeIntervention.description}} </p>
+                                                     </div>
+                                                    <div class="col-md-4">
+            
+                                                        <h5 class="my-1"> Etat</h5>
+                                                        <p class="text-muted mb-2">{{demandeIntervention.ordreinterventions[0].degre}}</p>
+                                                    </div>
+                                                    <div class="col-md-4">
+            
+                                                        <h5 class="my-1">Date Etat </h5>
+                                                        <p class="text-muted mb-2">        
+                                                        {{demandeIntervention.ordreinterventions[0].date}} </p>
+                                                    </div>
+
+                                                   
+    
+                                                    <div class="col-md-4">
+            
+                                                        <h5 class="my-1">  Temps d'intervention (travail)  </h5>
+                                                        <p class="text-muted mb-2">{{demandeIntervention.tempstravail}}</p>
+                                                    </div>
+    
+                                                    <div class="col-md-4">
+            
+                                                        <h5 class="my-1"> Durée arrêt de machine  </h5>
+                                                        <p class="text-muted mb-2">        
+                                                        {{demandeIntervention.dureearretmachine}} </p>
+                                                    </div>
+
+                                                    
+                                                    <div class="col-md-4">
+            
+                                                        <h5 class="my-1"> Client</h5>
+                                                        <p class="text-muted mb-2">{{Usernom}} {{Userprenom}}</p>
+                                                    </div>
+                                                   
+                                            </div><!--end card-body-->
+                                        </div><!--end card-->
+                                        <p class="card-footer bg-light m-0">Note d'intervention - GMAO</p>
+
+                                    </div><!--end col-->
+                                    </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col-lg-12 col-xl-4 ml-auto align-self-center">
+                                            <div class="text-center text-muted"><small>Merci beaucoup de faire affaire avec nous. Merci!</small></div>
+                                        </div>
+                                        </div>
+    
+    
+                            <!-- <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="float-left">
+                                        <address class="font-13">
+                                            <i class="mdi mdi-av-timer"></i>
+                                            <strong class="font-14">Date demande :</strong><br>
+                                            {{demandeIntervention.date}}
+                                        </address>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">                                            
+                                    <div class="float-left">
+                                        <address class="font-13">
+                                            <strong class="font-14">Temps de travil :</strong><br>
+                                            <i class="mdi mdi-clock-fast"></i>
+
+                                            {{demandeIntervention.tempstravail}}<br>
+                                        </address>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="">
+                                        <address class="font-13">
+                                            <strong class="font-14">Description:</strong><br>
+                                            {{demandeIntervention.description}} <br>
+                                        </address>
+                                    </div>
+                                </div>                                           
+                               
+                               
+                         
+                                <div class="col-md-6">
+                                    <div class="float-left">
+                                        <address class="font-13">
+                                            <i class="mdi mdi-timer"></i><strong class="font-14">Date arrêt de machine :</strong><br>
+                                            {{demandeIntervention.date}}
+                                        </address>
+
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-md-6">
+                                    <div class="float-left">
+                                        <address class="font-13">
+                                            <strong class="font-14">Durée arret de machine   :</strong><br>
+                                            {{demandeIntervention.dureearretmachine}}
+                                        </address>
+
+                                    </div>
+                                   
+                                </div> -->
+                                <!-- <div class="col-md-6">
+                                    <div class="float-left">
+                                        <address class="font-13">
+                                            <strong class="font-14">Réaliser par   :</strong><br>
+                                         {{Usernom}} {{Userprenom}}
+                                        </address>
+
+                                    </div>
+
+                            </div> -->
+                            </div>
+                           <!-- 
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="float-left">
+                                        <address class="font-13">
+                                            <strong class="font-14">Nature d'intervention :</strong><br>
+                                            {{demandeIntervention.panne}}
+                                        </address>
+
+                                    </div>
+                                </div>
+                           
+                            <div class="col-md-6">
+                                <div class="float-left">
+                                    <address class="font-13">
+                                        <strong class="font-14">Ordre d'intervention :</strong><br>
+                                        {{demandeIntervention.ordreinterventions[0].degre}}
+                                    </address>
+
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                                
+                         </div>
+
+
+
+
+
+                        
+
+
+                        
+                        
+            
+</div>        
+</div>
+</div>
+
+

@@ -1,0 +1,47 @@
+<div class="row">
+    <!--end col-->
+
+       <div class="col-lg-12">
+           <div class="card">
+               <div class="card-body">
+              
+                <div class="">
+                    <ol class="breadcrumb">
+                        <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);" routerLink='/technicien'>Liste</a></li>
+                        <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"  ></a>Technicien </li>
+                       <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"  ></a>Détails </li>
+                    </ol>
+                </div>  
+                <h4 class="title" style="color: black;"> Détails Technicien </h4>
+
+                        <div class="main-timeline">
+                            <div class="timeline">
+                                <a class="timeline-content">
+                                    <div class="timeline-icon">
+                                        <i class="fas fa-users"></i>
+                                        <p>{{technicien.nom}} {{ technicien.prenom }} </p>
+                                    </div>
+                                    <div class="inner-content">
+                                        <!-- <div class="pricingTable1">
+                                            <span class="pricing-icon" style="float: right;"><i class="fas fa-user"></i></span>
+                                            </div> -->
+                                                <h4 class="mt-0 header-title mb-3"> Details Technicien</h4>   
+                                             
+                                                    <p class="mt-2" style="text-align: left;"><i class="mdi mdi-email-outline text-success font-18 mt-2 mr-2"></i> <b> EMAIL : </b> {{technicien.email}}</p>
+                                                    <p class="mt-2" style="text-align: left;"><i class="mdi mdi-clipboard-account text-success font-18 mt-2 mr-2"></i> <b>GRADE :</b>  {{technicien.grade}}</p>
+                                                    <p class="" style="text-align: left;"><i class="mdi mdi-phone mr-2 text-success font-18"></i> <b> TELEPHONE : </b> {{technicien.tel}}</p>
+                                                    <p class="" style="text-align: left;"><i class="mdi mdi-home-lock mr-2 text-success font-18"></i> <b> ATELIER : </b> {{technicien.service.nom_service}}</p>
+
+                                                    <p class="description" style="text-align: left;" >
+                                                        Le nom de notre Technicien est {{ technicien.prenom }} {{ technicien.nom }} avec une adresse email : {{technicien.email}} spécialité en  {{technicien.grade}} 
+                                                    </p>
+                                    </div>
+                                    <div class="timeline-year"><span>{{ technicien.prenom }}</span></div>
+                                </a>
+                            </div>
+                            </div>
+            </div><!--end col-->
+            </div><!--end col-->                                             
+               
+       </div>
+</div>

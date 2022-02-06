@@ -1,0 +1,24 @@
+.mb{
+    padding-bottom: 30px;
+}
+.btn:hover{
+    cursor: pointer;
+    }
+
+.colp{
+        white-space: nowrap;  
+        overflow: hidden;
+        -webkit-line-clamp: 2;
+        text-overflow:ellipsis;
+        text-align:center; 
+        clear: both;
+   }
+
+.my-1{
+    color:#005F99;
+  }
+  .button-items{
+    margin-bottom: 30px;
+  }
+  .float-right{padding: 20px;}
+  .gris{background-color:#7F7C82 !important ;}

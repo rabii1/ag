@@ -1,0 +1,280 @@
+<div class="row">
+    <!--end col-->
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+             <div class="card-body">
+           
+                 <div class="">
+                     <ol class="breadcrumb">
+                         <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);" routerLink='/list-intervention' style="color:rgb(210, 30, 114)">Liste des interventions</a></li>
+                         <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"  ></a>intervention </li>
+                        <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"  ></a>Détails </li>
+                     </ol>
+                 </div>  
+                
+
+                 <div class="card" style="margin: 20px;">
+                     <div class="card-body invoice-head"> 
+                         <div class="row">
+                             <div class="col-md-4 align-self-center">                                                
+                                 <img src="assets/images/gmao.png" alt="logo-small" class="logo-sm mr-2" height="38">                                            
+                                 <!-- <img src="assets/images/log.png" alt="logo-large" class="logo-lg" height="18">                                                -->
+                             </div>
+
+                             <div class="col-md-8">
+                                 
+                                 <ul class="list-inline mb-0 contact-detail float-right">                                                   
+                                     <li class="list-inline-item">
+                                         <div class="pl-3">
+                                             <i class="mdi mdi-web"></i>
+                                             <p class="text-muted mb-0">www.GMAO e-SAAD.com</p>
+                                         </div>                                                
+                                     </li>
+                                     <li class="list-inline-item">
+                                         <div class="pl-3">
+                                             <i class="mdi mdi-phone"></i>
+                                             <p class="text-muted mb-0">+216 {{Usertel}}</p>
+                                         </div>
+                                     </li>
+                                     
+                                     <!-- <li class="list-inline-item">
+
+                                         <div class="pl-3">
+                                             <i class="mdi mdi-map-marker"></i>
+                                             <p class="text-muted mb-0">{{Useradresse}}</p>
+                                         </div>
+                                     </li> -->
+                                 </ul>
+                             </div>
+                         </div> 
+                     </div>
+                     <div class="card-body">
+                   
+                         <h4 class="mt-0 header-title" style="margin:55px 0;color: rgb(210, 30, 114);text-align: center;"> Détails des  interventions</h4>
+
+                         <div class="row">
+                             <div class="col-lg-12">
+                                     <div class="card card-body text-center">
+                                         
+
+                                         <h4 class="card-title mt-0" style=" color:#DB6400;">Informations sur intervention</h4>
+                                                                         
+                                         <div class="row">
+ 
+                                             <div class="col-md-4">
+                                                 <h5 class="my-1">Date Debut</h5>
+                                                 <p class="text mb-2">{{intervention.date_debut}} </p>
+                                              </div>
+                                             <div class="col-md-4">
+     
+                                                 <h5 class="my-1"> Observation </h5>
+                                                 <p class="text mb-2">{{intervention.observation}}</p>
+                                             </div>
+                                             <div class="col-md-4">
+     
+                                                 <h5 class="my-1"> Etat</h5>
+                                                 <p class="text mb-2">{{intervention.etat}}</p>
+                                             </div>
+                            
+                                     </div><!--end card-body-->
+
+                                 </div><!--end card-->
+
+                            <!--end col-->
+                             </div>
+ 
+ 
+ 
+ 
+                             <div class="col-lg-12">
+                                     <div class="card card-body text-center">
+                                         
+                                       
+                                         <h4 class="card-title mt-0" style=" color:#DB6400;">Informations Technicien</h4>
+                                         <p class="card-text"></p>                                        
+                                         <div class="row">
+ 
+                                          
+                                      
+
+                                             <div class="col-md-4">
+     
+                                                <h5 class="my-1"> Nom & Prénom </h5>
+                                                <p class="text mb-2">                                              
+                                                {{intervention.tech.nom}}  {{intervention.tech.prenom}}                                                                </p>
+                                            </div>
+                                            
+                                            <div class="col-md-4">
+         
+                                                <h5 class="my-1">Téléphone </h5>
+                                                <p class="text mb-2">        
+                                                {{intervention.tech.tel}} 
+                                            </p>
+                                            </div>
+                                            <div class="col-md-4">
+         
+                                                <h5 class="my-1">Grade </h5>
+                                                <p class="text mb-2">        
+                                                    {{intervention.tech.grade}}  
+                                             </p>
+                                            </div>
+                                            <!-- <div class="col-md-3">
+         
+                                                <h5 class="my-1">Service </h5>
+                                                <p class="text-muted mb-2">   
+
+                                                {{intervention.tech.service.nom_service }}
+                                            </p>
+                                            </div> -->
+                                            
+                                     </div><!--end card-body-->
+                                 </div><!--end card-->
+
+                             <!--end col-->
+                             </div>
+                             </div>
+ 
+ 
+                             <div class="row">
+                                 <div class="col-lg-12">
+                                         <div class="card card-body text-center">
+                                             <h4 class="card-title mt-0" style=" color:#DB6400;"> Information sur equipement
+                                             </h4>
+                                             <p class="card-text"></p>                                        
+                                             <div class="row">
+     
+                                                 <div class="col-md-3">
+                                                     <h5 class="my-1">libelle </h5>
+                                                     <p class="text mb-2">
+                                                         {{intervention.dem.equipement.libelle}}
+                                                         </p>
+                                                  </div>
+                                                 <div class="col-md-3">
+         
+                                                     <h5 class="my-1"> numero_model</h5>
+                                                     <p class="text mb-2">
+                                                         {{intervention.dem.equipement.numero_model}}
+
+                                                     </p>
+                                                 </div>
+                                                
+                                                 <div class="col-md-3">
+         
+                                                     <h5 class="my-1"> numero_serie</h5>
+                                                     <p class="text mb-2"> 
+                                                         {{intervention.dem.equipement.numero_serie}}
+                                                        </p>
+                                                 </div>
+                                                 <div class="col-md-3">
+         
+                                                    <h5 class="my-1"> marque</h5>
+                                                    <p class="text mb-2">
+                                                         {{intervention.dem.equipement.marque}}
+                                                        </p>
+                                                </div>
+                                                
+                                         </div><!--end card-body-->
+                                     </div><!--end card-->
+
+                                <!--end col-->
+
+                            
+
+                                 </div>
+                                 </div>
+
+                                 <div class="row">
+                                    <div class="col-lg-12">
+                                            <div class="card card-body text-center">
+                                                
+                                              
+                                                <h4 class="card-title mt-0" style=" color:#DB6400;">Informations liee au activation des equipements 
+                                                </h4>
+                                                <div class="pricingTable1 text-center" >
+                                            
+                                                    <img src ="http://127.0.0.1:1337/images/{{intervention.dem.equipement.image}}"  alt="" class=" mx-auto  d-block"  width ="200" height="200">
+                                                    <p class="card-text"></p>                                        
+                                                    <div class="row">
+
+                                                    <!-- <div class="col-md-4">
+                                                        <h5 class="my-1">duree en service</h5>
+                                                        <p class="text mb-2">
+                                                            {{intervention.dem.equipement.duree_en_service}}
+                                                         </p>
+                                                     </div> -->
+                                                     
+                                                     <div class="col-md-6">
+                                                        <h5 class="my-1">date en service</h5>
+                                                        <p class="text mb-2">
+                                                            {{intervention.dem.equipement.date_en_service}}
+                                                         </p>
+                                                     </div>
+
+                                                     <div class="col-md-6">
+                                                        <h5 class="my-1">Service</h5>
+                                                        <p class="text mb-2">
+                                                            {{intervention.tech.service.nom_service}}
+                                                         </p>
+                                                     </div>
+                                 </div>
+                                 </div>
+                                </div>
+                                 
+                                 </div>
+                                 </div>
+                             
+                            <div class="row"  [hidden]="ordreintervention.etat==='bien recu' || ordreintervention.etat==='rejetee' || ordreintervention.etat==='en cours' || ordreintervention.etat==='arreter'">
+                                <div class="col-lg-12">
+                                        <div class="card card-body text-center">
+                                     <h4 class="card-title mt-0" style=" color:#DB6400;"> Informations sur Les taches réaliser </h4>
+                                                                        
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="">
+                                    <div class="tracking-timeline">
+                                        <ul class="timeline mt-4">
+
+                                            <!-- <li>
+                                                <p class="timeline-date">{{intervention.listTache[0].date | date:'MM-dd-yyyy HH:mm'}}</p>
+                                                <div class="timeline-content">
+                                                    <div class="track-info">
+                                                        <h5 class="mt-0 mb-1">Tache </h5>
+                                                        <p class="mb-0">{{intervention.listTache[0].tache}}</p>
+                                                    </div>  
+                                                </div>
+                                            </li> -->
+                                            <!-- <li>
+                                                <p class="timeline-date">3 March 2019</p>
+                                                <div class="timeline-content">
+                                                    <div class="track-info">
+                                                        <div class="text-muted float-right">
+                                                            <p class="mb-1">4:35PM</p>
+                                                            <span>T-No:6574148212355</span>
+                                                        </div>
+                                                        <h5 class="mt-0 mb-1">Delivered </h5>
+                                                        <p class="mb-0">Gujarat, India</p>
+                                                    </div>                                                         
+                                                </div>
+                                            </li> -->
+    
+                                                    </ul>
+                                                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+
+                    <div  *ngIf="Userrole==='admin'" class="text-center">
+                        <button *ngIf="intervention.etat == 'en cours'"   style="margin-left: 0 " type="button" (click)="SuspenduAdmin(intervention.ordreintervention.id,intervention.ordreintervention.demandeintervention.id,intervention.id)"  class="btn-xl btn-block btn btn-purple waves-effect waves-light"><i class="fa fa-times" aria-hidden="true"></i>ARRETER</button>            
+                    </div>
+                           
+                              
+                                     </div>
+                                 
+                                     </div>
+                                   
+</div>
+</div>
+</div>

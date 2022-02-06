@@ -1,0 +1,64 @@
+<div class="row">
+    <!--end col-->
+  
+       <div class="col-lg-12">
+           <div class="card">
+               <div class="card-body">
+                <div class="float-right align-item-center mt-2">
+                    <button class="btn btn-info btn-round px-4 align-self-center report-btn" routerLink='/technicien-create'>Ajoute </button>
+                </div>
+                <h4 class="mt-0 header-title" style="margin:55px 0;color: rgb(210, 30, 114);text-align: center;">Liste des Techniciens</h4>
+                <div class="container">
+                    <div class="container custom-container-2">
+  
+                       
+                      
+                        <!-- Employees list table, it hides when there is no employee -->
+                      <div class="col-md-12">
+                        <table id="datatableexample" class="table table-striped mb-0 text-center"    >                      
+                          <thead>
+                            <tr  style=" background-color: #dbe6fd;
+                            color: white;">         
+                              <!-- <th scope="col">Id</th> -->
+                              <!-- <th scope="col" > Image</th> -->
+                              <th scope="col">Nom</th>
+                              <th scope="col">Email</th>
+                              <th scope="col">Grade</th>
+                              <th scope="col">Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let technicien of Technicien">
+                              <!-- <td><img src="assets/images/user.png"  class="rounded-circle thumb-sm mr-1" style=" width: 10px; height: 10px; "></td> -->
+                              <td> <img src="assets/images/tt.png"  class="rounded-circle thumb-sm mr-1" style=" width: 10px; height: 10px; ">{{technicien.nom}}</td>
+                              <td>{{technicien.email}}</td>
+                              <td>{{technicien.grade}}</td>
+                              <td>
+  
+                                <button type="button" class="btn-sm btn-success btn-round"     style="margin:5px"   routerLink="/technicien-View/{{technicien.id}}" ><i class="mdi mdi-eye"></i></button>
+                                <button type="button" class="btn btn-sm btn-warning btn-round" style="margin:5px"  routerLink="/technicien-update/{{technicien.id}}" ><i class="fas fa-edit"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger btn-round"  style="margin:5px"  (click)="triggerModal(modalData1,technicien.id)"   ><i class="fas fa-trash-alt"></i></button>
+                    
+                            </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      </div>
+                    </div>
+                    </div>
+                    </div>
+       </div>
+  
+       <ng-template #modalData1 let-modal>
+        <div class="modal-header">                      
+            <h3 class="modal-title">Supprimer Technicien</h3>
+        </div>      
+        <div class="modal-body">                    
+        <h4>{{error}}</h4>
+        </div>
+        <div class="modal-footer">
+        <input type="button" class="btn btn-default" data-dismiss="modal" (click)="modal.close('Save click')"  value="Annuler">
+        <input [hidden]="delete" type="button" class="btn btn-danger" value="supprimer"   (click)="deleteEmployee()" >  
+        </div>
+        </ng-template>

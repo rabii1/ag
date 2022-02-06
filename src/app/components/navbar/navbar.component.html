@@ -1,0 +1,167 @@
+<div class="left-sidenav">     
+    <ul class="metismenu left-sidenav-menu" id="side-nav">
+        <li class="menu-title">Menu</li>
+        <li>
+            <a  routerLink='/home'><i  class="mdi mdi-monitor"></i><span>
+                Tableau de bord</span><span class="badge badge-danger badge-pill float-right"></span></a>
+            <ul class="nav-second-level" aria-expanded="false">
+            </ul>
+        </li>
+        
+        <li>
+            <a  *ngIf="Userrole=='technicien'" routerLink='/ordreTech'> <i class="mdi mdi-format-list-bulleted"></i> <span>
+                Ordre non traité </span><span class="badge badge-danger badge-pill float-right"></span></a>
+            <ul class="nav-second-level" aria-expanded="false">
+            </ul>
+        </li>
+
+        <li>
+            <a  *ngIf="Userrole=='technicien'" routerLink='/OrdreTraite'><i  class="mdi mdi-arrow-expand-up "></i><span>
+                Ordre traité</span><span class="badge badge-danger badge-pill float-right"></span></a>
+            <ul class="nav-second-level" aria-expanded="false">
+            </ul>
+        </li>
+
+        <!-- <li>
+            <a  *ngIf="Userrole=='technicien'" routerLink='/OrdreNonTraite'><i  class="mdi mdi-arrow-split-vertical
+                "></i><span>
+                Ordre non Traité</span><span class="badge badge-danger badge-pill float-right"></span></a>
+            <ul class="nav-second-level" aria-expanded="false">
+            </ul>
+        </li> -->
+        <!-- <li>
+            <a  *ngIf="Userrole=='technicien'" routerLink='/Messagerie'><i  class="mdi mdi-message-outline
+                "></i><span>
+                Messagerie</span><span class="badge badge-danger badge-pill float-right"></span></a>
+            <ul class="nav-second-level" aria-expanded="false">
+            </ul>
+        </li> -->
+
+        <li>
+            <a  href="javascript: void(0);" *ngIf="Userrole=='superadmin'  ||  Userrole =='admin'"  ><i   class="mdi mdi-account-multiple-outline"></i>
+                <span>Gestion des utilisateurs</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+            <ul class="nav-second-level" aria-expanded="false">
+
+                <li><a *ngIf="Userrole=='superadmin'" routerLink='/admins'><i class="mdi mdi-account-box-outline"></i>
+                    <span> Admins</span></a></li> 
+
+                <li><a   *ngIf="Userrole=='superadmin'||'admin' " routerLink='/technicien'> <i class="mdi mdi-worker"></i>
+                    <!-- <i class="mdi mdi-account-box"></i> -->
+                    <span> Techniciens</span></a></li>
+                    <li><a  *ngIf="Userrole== 'admin' ||'superadmin' " routerLink='/employee-list'><i class="mdi mdi-account-multiple"></i>
+                        <span> Employées</span></a></li>
+
+            </ul>
+        </li>
+
+        <li><a *ngIf=" Userrole =='employee'" routerLink='/Demande-intervention'><i class="mdi mdi-cards-outline"></i>
+            <span> Lancer demande </span></a></li> 
+
+            <li><a  href="javascript: void(0);" *ngIf=" Userrole =='employee'" routerLink='/Demandetraiter' ><i class="mdi mdi-table-large"></i>      
+                <span> Demandes traitées</span></a></li>
+                <li><a  href="javascript: void(0);" *ngIf=" Userrole =='employee'" routerLink='/DemandeNontraiter' > <i class="mdi mdi-content-copy"></i>        
+                    <span> Demandes Non traitées </span></a></li>
+                
+        <!-- "*ngIf=Userrole=='employee'  -->
+        <li>
+            <a  href="javascript: void(0);" *ngIf=" Userrole =='admin'"><i class="mdi mdi-monitor-multiple"></i>       
+                <span>Suivi demandes</span><span class="menu-arrow"> <i class="mdi mdi-chevron-right"></i> </span></a>
+            <ul class="nav-second-level" aria-expanded="false">
+
+                <li><a *ngIf=" Userrole =='admin'" routerLink='/Demande-intervention'><i class="mdi mdi-cards-outline"></i>
+
+                    <span> Lancer demande </span></a></li> 
+                <li><a *ngIf="Userrole =='admin'" routerLink='/demandeNontraiter'><i class="mdi mdi-table-large"></i>
+                        <span>   Demande Non traité</span></a></li>
+                <li><a   *ngIf="Userrole=='employee'  ||  Userrole =='admin'" routerLink='/demandetraiter'><i class="mdi mdi-content-copy"></i>
+                    <span> Demande traité</span></a></li>
+            </ul>
+        </li>
+
+
+
+        <li>
+            <a  *ngIf="Userrole=='admin'"  routerLink='/list-Ordre'><i class="mdi mdi-format-list-bulleted"></i><span>
+                 Ordre intervention</span><span class="badge badge-danger badge-pill float-right"></span></a>
+            <ul class="nav-second-level" aria-expanded="false">
+            </ul>
+        </li>
+
+
+
+
+        <li>
+            <a *ngIf="Userrole=='admin' || Userrole=='technicien'  " routerLink='/list-intervention'><i class="mdi mdi mdi-wrench"></i><span>  Interventions</span><span class="badge badge-danger badge-pill float-right"></span></a>
+            <ul class="nav-second-level" aria-expanded="false">
+              
+                <!-- <li><a *ngIf="Userrole=='employee'  ||  Userrole =='admin'" routerLink='/create-intervention'><i class="mdi mdi-cards-outline"></i>
+
+                    <span>crée intervention </span></a></li>   -->
+            </ul>
+        </li>
+
+       
+
+
+        <li>
+            <a  href="javascript: void(0);" *ngIf=" Userrole =='admin' || Userrole=='technicien'"><i class="mdi mdi-tag-multiple"></i>        
+                <span>Matériels</span><span class="menu-arrow"> <i class="mdi mdi-chevron-right"></i> </span></a>
+            <ul class="nav-second-level" aria-expanded="false">
+
+                <li><a *ngIf=" Userrole =='admin' || Userrole=='technicien'" routerLink='/list-equipement'><i class="mdi mdi-cards-outline"></i>
+
+                    <span> Equipement </span></a></li> 
+                <li><a *ngIf="Userrole=='employee'  ||  Userrole =='admin'|| Userrole=='technicien'"  routerLink='/list-Pieces'><i class="mdi mdi-table-large"></i>
+
+
+
+                        <span>Pièces de rechange</span></a></li> 
+
+                <!-- <li><a   *ngIf="Userrole=='superadmin'  ||  Userrole =='admin'" routerLink='/demandetraiter'><i class="mdi mdi-content-copy"></i>
+                    <span> Demande traité</span></a></li> -->
+                   
+            </ul>
+        </li>
+
+
+
+        <li>
+            <a *ngIf="Userrole=='admin' " routerLink='/service'><i class="mdi mdi-home-lock"></i><span>  Service</span><span class="badge badge-danger badge-pill float-right"></span></a>
+            <ul class="nav-second-level" aria-expanded="false">
+               
+            </ul>
+        </li>
+
+        
+        <li><a  *ngIf="Userrole== 'admin' " routerLink='/list-Fournisseur'><i class="mdi mdi-worker"></i>
+            <span> Fournisseur</span><span class="badge badge-danger badge-pill float-right"></span></a>
+           <ul class="nav-second-level" aria-expanded="false">   
+            </ul>
+        </li>
+        <!-- <li>
+            <a *ngIf="Userrole=='admin' " routerLink='/notification'>  <i class="mdi mdi-bell-outline nav-icon"></i><span>  Notifications</span><span class="badge badge-danger badge-pill float-right"></span></a>
+            <ul class="nav-second-level" aria-expanded="false">
+               
+            </ul>
+        </li> -->
+     
+
+        <li>
+            <a *ngIf="Userrole=='admin'"   routerLink='/demande-pieces'><i class="mdi mdi-clipboard-text"></i><span>  demande des Pièces</span><span class="badge badge-danger badge-pill float-right"></span></a>
+            <ul class="nav-second-level" aria-expanded="false">
+               
+            </ul>
+        </li> 
+        
+        <li><a  href="javascript: void(0);" *ngIf=" Userrole =='admin'" routerLink='/historique' ><i class="mdi mdi mdi-history"></i>
+           
+            <span>Historique</span></a></li>
+
+
+       
+     
+
+      
+
+    </ul>
+</div>

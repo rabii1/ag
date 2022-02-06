@@ -1,0 +1,237 @@
+<div class="row">
+    <!--end col-->
+
+       <div class="col-lg-12">
+           <div class="card">
+               <div class="card-body">
+                <div class="card-body">
+              
+                    <div class="">
+                        <ol class="breadcrumb">
+                            <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);" routerLink='/demandeNontraiter' style="color:rgb(210, 30, 114)">Liste des demandes</a></li>
+                            <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"  ></a>Demande d'intervention </li>
+                           <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"  ></a>Détails </li>
+                        </ol>
+                    </div>  
+              
+
+                    <div class="card-card">
+                        <div class="card-body invoice-head"> 
+                            <div class="row">
+                                <div class="col-md-4 align-self-center">                                                
+                                    <img src="assets/images/gmao.png" alt="logo-small" class="logo-sm mr-2" height="38">                                            
+                                    <!-- <img src="assets/images/log.png" alt="logo-large" class="logo-lg" height="18">                                                -->
+                                </div>
+                                <div class="col-md-8">
+                                    
+                                    <ul class="list-inline mb-0 contact-detail float-right">                                                   
+                                        <li class="list-inline-item">
+                                            <div class="pl-3">
+                                                <i class="mdi mdi-web"></i>
+                                                <p class="text-muted mb-0">www.GMAO e-SAAD.com</p>
+                                            </div>                                                
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <div class="pl-3">
+                                                <i class="mdi mdi-phone"></i>
+                                                <p class="text-muted mb-0">+216 {{Usertel}}</p>
+                                            </div>
+                                        </li>
+                                        
+                                        <li class="list-inline-item">
+
+                                            <div class="pl-3">
+                                                <i class="mdi mdi-map-marker"></i>
+                                                <p class="text-muted mb-0">{{Useradresse}}</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="card-body">
+                            <h4 class="mt-0 header-title"  style="margin:55px 0;color: rgb(210, 30, 114);text-align: center;"> Détails de demande  interventions planifié</h4>
+
+                           
+                                
+                           
+                       
+
+
+                         
+  
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <!-- <div class="card"> -->
+                                        <div class="card card-body text-center">
+                                            <h4 class="card-title mt-0"  style=" color:#DB6400;">Informations de contact</h4>
+                                            <p class="card-text"></p>                                        
+                                            <div class="row">
+    
+                                                <div class="col-md-4">
+                                                    <h5 class="my-1">Nom & Prenom</h5>
+                                                    <p class="text mb-2"> {{Usernom}} {{Userprenom}}</p>
+                                                 </div>
+                                                <div class="col-md-4">
+        
+                                                    <h5 class="my-1"> Téléphone</h5>
+                                                    <p class="text mb-2">{{Usertel}}</p>
+                                                </div>
+                                                <div class="col-md-4">
+        
+                                                    <h5 class="my-1"> Email</h5>
+                                                    <p class="text mb-2">{{Useremail}}</p>
+                                                </div>
+                                        </div><!--end card-body-->
+
+                                    </div><!--end card-->
+                                    <!-- <p class="card-footer bg-light m-0">Informations de contact - GMAO</p> -->
+
+                                <!-- </div> -->
+                                <!--end col-->
+                                </div>
+    
+    
+    
+    
+                                <div class="col-lg-6">
+                                    <!-- <div class="card"> -->
+                                        <div class="card card-body text-center">
+                                            
+                                          
+                                            <h4 class="card-title mt-0"  style=" color:#DB6400;">  Note de demande</h4>
+                                            <p class="card-text"></p>                                        
+                                            <div class="row">
+                                                <div class="col-md-4">
+            
+                                                    <h5 class="my-1"> Date arrêt de machine  </h5>
+                                                    <p class="text  mb-2">        
+                                                    {{demandeIntervention.dureearretmachine | date: 'MM-dd-yyyy'}} </p>
+                                                </div>
+
+                                             
+                                                <div class="col-md-4">
+        
+                                                    <h5 class="my-1"> Priorite</h5>
+                                                    <p class="text mb-2">{{demandeIntervention.priorite}}</p>
+                                                </div>
+                                                <div class="col-md-4">
+        
+                                                    <h5 class="my-1"> 	Date de demande</h5>
+                                                    <p class="text mb-2">      
+                                                    {{demandeIntervention.date |date: 'MM-dd-yyyy'}}                                                                 </p>
+                                                </div>
+                                        </div><!--end card-body-->
+                                    </div><!--end card-->
+                                     <!-- <p class="card-footer bg-light m-0">  Note de demande - GMAO</p>  -->
+
+                                <!-- </div> -->
+                                <!--end col-->
+                                </div>
+                                </div>
+    
+    
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <!-- <div class="card"> -->
+                                            <div class="card card-body text-center">
+                                                
+                                              
+
+                                    
+                                                <h4 class="card-title mt-0" style=" color:#DB6400;">  Informations de demande
+                                                </h4>
+                                                <p class="card-text"></p>                                        
+                                                <div class="row">
+    
+                                                    <div class="col-md-6">
+                                                        <h5 class="my-1">Nature d'intervention </h5>
+                                                        <p class="text mb-2">{{demandeIntervention.panne}}</p>
+                                                     </div>
+                                               
+                                                    
+                                                    <div class="col-md-6">
+                                                        <h5 class="my-1">Description </h5>
+                                                        <p class="text mb-2">{{demandeIntervention.description}} </p>
+                                                     </div>
+
+                                                    <!-- <div class="col-md-4">
+                                                                <h5 class="my-1">  Date de réparation  </h5>
+                                                        <p class="text mb-2">{{demandeIntervention.tempstravail}}</p>
+                                                    </div> -->
+    
+                                                    
+
+                                                    
+                                                  
+                                                   
+                                            </div><!--end card-body-->
+
+                                        </div><!--end card-->
+
+                                    <!-- </div> -->
+                                    <!--end col-->
+                                    </div>
+                                    </div>
+                                   
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                  
+                                                <div class="card card-body text-center">
+                                             <h4 class="card-title mt-0"  style="color:#DB6400;" >Equipements liés à cette demande intervention
+                                            </h4>
+    
+                                             <div class="pricingTable1 text-center" >
+                                                
+                                                     <img src ="http://127.0.0.1:1337/images/{{demandeIntervention.equipement.image}}"  alt="" class=" mx-auto  d-block"  width ="200" height="200">
+    
+                                                        <div class="card-post ">
+                                                               <strong> {{demandeIntervention.equipement.libelle}} </strong>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        
+                                                        <div class="pricingTable1 text-center">
+                                                           
+                                                        <ul class="list-unstyled pricing-content-2 py-3 border-0">
+                                                            <li><strong>Marque:</strong>{{demandeIntervention.equipement.marque}}</li>
+                                                            <li><strong>Numéro model:</strong> {{demandeIntervention.equipement.numero_model}} </li>
+                                                            <li><strong>Numéro série:</strong>Numéro série:{{demandeIntervention.equipement.numero_serie}} </li>
+                                                        </ul>
+                                                        </div>
+                                                        
+                                                    </div><!--end card-body-->
+
+                                                </div><!--end card-->
+                                            <!-- </div> -->
+                                            <!--end col-->  
+
+                            </div>
+                            </div>
+
+
+              
+                           <!-- <hr> -->
+                                    
+    
+    
+                           
+                    </div>
+                                
+                         </div>
+
+
+
+
+
+                        
+
+
+                        
+                        
+            
+</div>        
+</div>
+</div>
+

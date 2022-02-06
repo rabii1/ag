@@ -1,0 +1,143 @@
+<div class="row">
+    <!--end col-->
+    
+       <div class="col-lg-12">
+           
+           <div class="card">
+               <div class="card-body">
+              
+                <div class="">
+                    <ol class="breadcrumb">
+                        <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);" routerLink='/technicien'>Liste</a></li>
+                        <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"  ></a>Technicien </li>
+
+                       <li class="d-inline-block align-middle mb-0 product-name"><a href="javascript:void(0);"  ></a>Ajouter </li>
+                    </ol>
+                </div>
+                <div class="container">                                  
+                      <div class="inner-content">
+                        <div class="media-body ml-3  align-self-center">
+                            <h4 class="mb-1" style="color: #e83e8c; text-align:  center;" >Ajouter Technicien</h4>
+                        </div>
+                
+                    <form [formGroup]="form" (ngSubmit)="submit()">
+                   
+                        <div class="form-group" >
+                            <label for="nom" style="color: black;">Nom</label>
+                            <input
+                                formControlName="nom"
+                                id="nom"
+                                type="text"
+                                class="form-control">
+                            <div *ngIf="f.nom.touched && f.nom.invalid"  class="text-danger">
+                            <div *ngIf="f.nom.errors.required"> <i class="fa fa-exclamation-triangle" style="padding: 5px;" aria-hidden="true"></i>Nom est obligatoire.</div>
+                
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="prenom" style="color: black;">Prénom</label>
+                            <input
+                                formControlName="prenom"
+                                id="prenom"
+                                type="text"
+                                class="form-control">
+                            <div *ngIf="f.prenom.touched && f.prenom.invalid" class="text-danger">
+                            <div *ngIf="f.prenom.errors.required"> <i class="fa fa-exclamation-triangle" style="padding: 5px;"  aria-hidden="true"></i>Prenom est obligatoire.</div>
+                
+                            </div>
+                        </div>
+                   
+                        <div class="form-group">
+                            <label for="email" style="color: black;">Email</label>
+                            <input
+                                formControlName="email"
+                                id="email"
+                                type="email"
+                                class="form-control">
+                    
+                            <div *ngIf="f.email.touched && f.email.invalid"  class="text-danger">
+                                <div *ngIf="f.email.errors.required"><i class="fa fa-exclamation-triangle" style="padding: 5px;"  aria-hidden="true"></i>Email est obligatoire.</div>
+                                <div *ngIf="f.email.errors.email"><i class="fa fa-exclamation-triangle" style="padding: 5px;"  aria-hidden="true"></i>Le email doit etre  une adresse valide</div>
+                
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" style="color: black;">Mot de passe</label>
+                            <input
+                                formControlName="password"
+                                id="password"
+                                type="password"
+                                class="form-control">
+                
+                            <div *ngIf="f.password.touched && f.password.invalid"  class="text-danger">
+                                <div *ngIf="f.password.errors.required"> <i class="fa fa-exclamation-triangle" style="padding: 5px;"  aria-hidden="true"></i>Mot de passe est obligatoire.</div>
+                            </div>
+                            <div  class="text-danger"
+                            *ngIf="f.password.touched && f.password.errors?.minlength" >
+                            <i  class="border-danger"  style="padding: 5px;"  aria-hidden="true" class="fa fa-exclamation-triangle" aria-hidden="true" ></i>
+                                                                     Votre mot de passe est courte 
+                           </div> 
+                        </div>
+
+                        <div class="form-group">
+                            <label for="grade" style="color: black;">Grade</label>
+                            <input
+                                formControlName="grade"
+                                id="grade"
+                                type="grade"
+                                class="form-control">
+                
+                            <div *ngIf="f.grade.touched && f.grade.invalid"  class="text-danger">
+                                <div *ngIf="f.grade.errors.required"> <i class="fa fa-exclamation-triangle" style="padding: 5px;"  aria-hidden="true"></i>Le champ grade est obligatoire.</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tel" style="color: black;">Télephone</label>
+                            <input
+                                formControlName="tel"
+                                id="tel"
+                                type="tel"
+                                class="form-control">
+                
+                            <div *ngIf="f.tel.touched && f.tel.invalid"  class="text-danger">
+                                <div *ngIf="f.tel.errors.required"> <i class="fa fa-exclamation-triangle" style="padding: 5px;"  aria-hidden="true"></i>téléphone est obligatoire.</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label  for="service" style="color: black;"  >Atelier </label>
+
+                            <!-- <div class="col-sm-12"> -->
+                                <select class="form-control" formControlName="service" id="service"  type="service">
+                                    <option disabled value="">Séléctionner l'atelier </option>
+                                    <option *ngFor="let service_item of Service" [value]="service_item.id">
+                                        {{service_item.nom_service}} </option>
+                                </select>
+                                <div *ngIf="f.service.touched && f.service.invalid" class="text-danger">
+                                    <div *ngIf="f.service.errors.required"> <i
+                                            class="fa fa-exclamation-triangle" style="padding: 5px;"
+                                            aria-hidden="true"></i>service est obligatoire</div>
+
+                                </div>
+                            <!-- </div> -->
+                        </div>
+
+
+
+                        <div class="float-right align-item-center mt-2">
+
+                            <button class="btn btn-danger btn-round  waves-effect waves-light px-4 align-self-center report-btn" routerLink='/technicien'>Annuler</button>
+                        </div>
+                        <div class="float-right align-item-center mt-2">
+
+                        <button class="btn btn-info btn-round  waves-effect waves-light px-4 align-self-center report-btn" type="submit" [disabled]="!form.valid">Enregistrer</button>
+                    </div>
+
+                    </form>
+                </div>           
+             </div>
+</div>
+</div>
+</div>

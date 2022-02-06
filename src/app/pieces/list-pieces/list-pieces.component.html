@@ -1,0 +1,115 @@
+<div class="row">
+
+       <div class="col-lg-12">
+           <div class="card">
+               <div class="card-body">
+                <h4 class="mt-0 header-title"  style="margin:55px 0;color: rgb(210, 30, 114);text-align: center;">  Liste des Piéces rechanges</h4>
+                <div class="float-right align-item-center mt-2">
+                   
+                  </div>
+                       
+     <div class="row">
+       <div class="col-sm-4">
+      </div>
+        <div class="col-sm-12 offset-sm-2">
+
+         <div class="container">
+              <div id="content">    
+                  <div class="input-group">
+                    <input type="text" placeholder="Recherche " class="form-control mb-4" [(ngModel)]="SearchTerm"  >
+                    <span class="input-group-btn" style="width:39px">
+                   <button type="submit"  class="pull-right btn btn-default search-btn">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    </span>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+        
+    
+       
+        <div class="row">
+            <div class="col-md-6">
+              <div class=col-md-3>
+                    <div class="pagination justify-content-end">
+                      <div class="flex-row-reverse bd-highlight mb-2 ">
+
+                       <!-- <div class="d-flex flex-row-reverse bd-highlight mb-2"> -->
+                          <div class="p-2 bd-highlight">
+                            <select (change)="onTableSizeChange($event)" class="custom-select">
+                              <option *ngFor="let size of tableSizes" [ngValue]="size">
+                                {{ size }}
+                              </option>
+                            </select>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+            </div>
+
+          <div class="col-md-6">
+            <div class="frame">
+              <button *ngIf="Userrole=='admin'" class="custom-btn btn-5" routerLink='/Create-Pieces'><span>Ajouter</span><span>Ajouter</span></button>
+            </div> 
+          </div>
+            </div>
+                       
+                    <!-- <div class="row"> -->
+                      <div class="row justify-content-center mt-5">
+                       
+                        <div *ngIf="PiecesRechange.length == 0"><h5>Pas des Pièces de Rechange</h5></div>                          
+                        <div class="col-lg-4" *ngFor="let pieces of PiecesRechange | searchFilter:SearchTerm | paginate : {
+                            itemsPerPage: tableSize,
+                            currentPage: page,
+                            totalItems: count
+                          };">
+                            <div class="card e-co-product">
+                                <a href=""> 
+                                    <img  id="image"  src ="http://127.0.0.1:1337/images/{{pieces.image}}"  alt="image" class="img-fluid">
+                                </a>                                    
+                                <div class="card-body text-center product-info">
+                                    <p class="product-price">{{pieces.nom_piece}} <span class="ml-2"></span></p>
+                                    <p  class="product-price">Réf :{{pieces.ref_piece }}<span class="ml-2"></span></p> 
+
+                                    <ul class="list-inline mb-2 product-review">
+                                       <!--  <li class="list-inline-item"><i class="mdi mdi-star ">Reference :{{pieces.ref_piece}}</i></li>
+                                        <li class="list-inline-item"><i class="mdi mdi-star ">Marque: {{pieces.marque_piece}}</i></li> -->
+<!--                                         <li class="list-inline-item"><i class="mdi mdi-star ">Code piece {{pieces.code_PR_utilisee}}</i></li>
+ -->                                    </ul>
+                                    <button *ngIf="Userrole=='admin'"  class="btn btn-warning btn-sm waves-effect waves-light wishlist"   routerLink="/update-Pieces/{{pieces.id}}"  data-toggle="tooltip" data-placement="top" title="Wishlist"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-cart btn-sm waves-effect waves-light" routerLink="/View-Pieces/{{pieces.id}}"  ><i class="mdi mdi-eye mr-1"></i> Détail </button>
+                                    <button *ngIf="Userrole=='admin'"  class="btn btn-danger btn-sm waves-effect waves-light quickview"  (click)="triggerModal(modalData1,pieces.id)"   data-toggle="tooltip" data-placement="top" title="Quickview"><i class="fas fa-trash-alt"></i></button>
+                                </div><!--end card-body-->
+                            </div><!--end card-->
+                        </div><!--end col-->
+
+
+
+
+
+</div>
+
+
+        <div class="d-flex justify-content-center">
+            <pagination-controls  previousLabel="Précédent"  nextLabel="Suivant" (pageChange)="onTableDataChange($event)">
+            </pagination-controls>
+        </div>
+                   </div>
+                   </div>
+                   </div>
+
+                   <ng-template #modalData1 let-modal>
+                    <div class="modal-header">                      
+                        <h3 class="modal-title">Supprimer Piéce</h3>
+                    </div>      
+                    <div class="modal-body">                    
+                      <h4>{{error}}</h4>
+                    </div>
+                    <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" (click)="modal.close('Save click')"  value="Annuler">
+                    <input [hidden]="delete"  type="button" class="btn btn-danger" value="supprimer"  (click)="deletePiece()" >  
+                    </div>
+                    </ng-template>

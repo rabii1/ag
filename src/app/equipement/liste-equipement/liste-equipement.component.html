@@ -1,0 +1,141 @@
+<div class="row">
+    <!--end col-->
+
+       <div class="col-lg-12">
+           <div class="card">
+               <div class="card-body">
+                <h4 class="mt-0 header-title"  style="margin:55px 0;color: rgb(210, 30, 114);text-align: center;"> Liste des Equipements</h4>
+
+    <div class="row">
+        <div class="col-sm-4">
+             </div>
+        <div class="col-sm-9 offset-sm-2">
+         <div class="container">
+            <div id="content">    
+                <div class="input-group">
+                    <input type="text" placeholder="Recherche " class="form-control mb-4" [(ngModel)]="term"   >
+                    <span class="input-group-btn" style="width:39px">
+                   <button type="submit"  class="pull-right btn btn-default search-btn">
+                        <i class="fa fa-search"></i>
+                     </button>
+                    </span>
+                  </div>
+           </div>
+           </div>
+           </div>
+           </div>
+     
+
+        <div class="row">       
+            <div class="col-md-6">
+                <div class=col-md-3>
+                      <div class="pagination justify-content-end">
+                        <div class="flex-row-reverse bd-highlight mb-2 ">
+  
+                         <!-- <div class="d-flex flex-row-reverse bd-highlight mb-2"> -->
+                            <div class="p-2 bd-highlight">
+                              <select (change)="onTableSizeChange($event)" class="custom-select">
+                                <option *ngFor="let size of tableSizes" [ngValue]="size">
+                                  {{ size }}
+                                </option>
+                              </select>
+                            </div>
+                          </div> 
+                        </div>
+                      </div>
+              </div>
+
+            <div class="col-md-6">
+               <div class="frame">
+                 <button *ngIf="Userrole=='admin'" class="custom-btn btn-5" routerLink='/CreateEquipement'><span>Ajouter</span><span>Ajouter</span> </button>
+               </div>
+              </div>
+            </div>
+
+            <div class="row" >
+              <div class="col-md-2 mb-3">
+              </div>
+             <div class="col-md-3 mb-3">
+           </div> 
+           <div class="custom-control">   
+            <label class="border-0" ><i class="mdi mdi-circle mr-1 text-success"></i>Nouveau</label>
+           </div>
+
+            <div class="custom-control">
+                  <label class="border-0" ><i class="mdi mdi-circle mr-1 text-danger"></i>En panne</label>
+            </div>
+
+            <div class="custom-control">
+                <label class="border-0" ><i class="mdi mdi-circle mr-1 text-info"></i>En marche</label>
+            </div>
+            
+            <div class="custom-control">
+              <label class="border-0" ><i class="mdi mdi-circle mr-1 text-warning"></i> Sous maintenance </label>
+           </div>
+           
+          </div>
+
+                <div class="row justify-content-center mt-5"> 
+                  
+                  <div *ngIf="Equipement.length == 0" class="centre"><h5>pas des équipements</h5></div>
+                  
+                  <div class="col-lg-4"  *ngFor="let equi of Equipement  of sortData | filter:term  | paginate : {
+                        itemsPerPage: tableSize,
+                        currentPage: page,
+                        totalItems: count
+                      };" >
+                        <div class="card e-co-product"  >
+                            <div class="ribbon-box mb-0">  
+                          
+                            <div  [ngClass]="{'bg-success':equi.etatact === 'nouveau' ,'bg-info':equi.etatact === 'en marche','bg-warning':equi.etatact === 'sous maintien','bg-danger':equi.etatact === 'en panne','bg-dark':equi.etatact  === 'hors service'}"
+                            class="ribbon ribbon-label"></div>
+                              <!-- <div class="ribbon ribbon-label bg-warning">{{equi.etatequipements[0].nometat}}</div> -->
+                            <a href=""  routerLink="/View-equipement/{{equi.id}}">  
+                                <img  id="image"    src ="http://127.0.0.1:1337/images/{{equi.image}}"  alt="image" class="img-fluid">
+                            </a>                                    
+                            <div class="card-body text-center product-info"  >
+                                <a href="" class="product-title"></a>
+                                <p class="product-price">{{equi.libelle}} <span class="ml-2"><del></del></span></p>
+
+                                <p class="product-price"> Réf :{{equi.numero_serie}} <span class="ml-2"><del></del></span></p>
+                                
+                                
+                                <button  *ngIf="Userrole=='admin'" class="btn btn-warning btn-sm waves-effect waves-light wishlist" data-toggle="tooltip"  routerLink="/update-equipement/{{equi.id}}" data-placement="top" title="Wishlist"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-cart btn-sm waves-effect waves-light"  routerLink="/View-equipement/{{equi.id}}"  ><i class="mdi mdi-eye mr-1"></i> Détail</button>
+                                 <!-- (click)="triggerModal(modalData1,equi.id)"     -->   
+                                <button *ngIf="Userrole=='admin'" class="btn btn-danger btn-sm waves-effect waves-light quickview"  (click)="triggerModal(modalData1,equi.id)" data-toggle="tooltip" data-placement="top" title="Quickview"><i class="fas fa-trash-alt"></i></button> 
+                            </div><!--end card-body-->
+                        </div><!--end card-->
+                        </div>
+                    </div><!--end col-->           
+                 </div>
+
+                 <div class="row">
+                    <div class="col-lg-12">
+        
+               
+        
+                <div class="d-flex justify-content-center mt-5">
+                            <pagination-controls  previousLabel="Précédent"  nextLabel="Suivant" (pageChange)="onTableDataChange($event)">
+                            </pagination-controls>
+                </div>
+                    </div>
+                 </div> 
+
+            </div>
+</div>
+</div>
+</div>
+
+<ng-template #modalData1 let-modal>
+    <div class="modal-header">                      
+        <h3 class="modal-title">Supprimer Equipement</h3>
+    </div>      
+    <div class="modal-body">                    
+    <h4>{{error}}</h4>
+    </div>
+    <div class="modal-footer">
+    <input type="button" class="btn btn-default" data-dismiss="modal" (click)="modal.close('Save click')"  value="Annuler">
+    <input type="button"  [hidden]="delete" class="btn btn-danger" value="supprimer"  (click)="deleteEquipement()" >  
+    </div>
+    </ng-template>
