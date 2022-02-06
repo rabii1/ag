@@ -34,8 +34,8 @@ export class BackendApiService {
 
     })
   } 
-  apiUrl='http://localhost:1337/'
-  //apiUrl=' http://backgmao-sirin.146.59.159.175.nip.io/'
+ // apiUrl='http://localhost:1337/'
+  apiUrl=' http://backgmao-sirin.146.59.159.175.nip.io/'
  
  
 
