@@ -23,7 +23,7 @@ export class UpdateEquipementComponent implements OnInit {
   progress:number=0;
   selectedFile : any =[];
   DataGlob:any;
-  url:any='http://127.0.0.1:1337/images/';
+  url:any='http://backgmao-sirin.146.59.159.175.nip.io/images/';
   minDate:any;
   constructor( private Serviceapibackend: BackendApiService,private notifyService : NotificationService,
                 private router: Router, 

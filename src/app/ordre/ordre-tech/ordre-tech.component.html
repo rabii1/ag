@@ -103,7 +103,7 @@
                                 <div  [ngClass]="{'bg-danger': ordre.etat === 'rejetee', 'gris': ordre.etat === 'suspenduAdmin','bg-pink': ordre.etat === 'suspenduTech','bg-info': ordre.etat === 'bien reçu','bg-warning': ordre.etat === 'initiale','bg-purple': ordre.etat === 'en cours'}"
                                 class="card-body  p-0">
                                     <div class="media p-3  align-items-center">                                                
-                                       <img src="http://127.0.0.1:1337/images/{{ordre.demandeintervention.equipement.image}}" alt="equipement" class="rounded-circle thumb-lg">  
+                                       <img src="http://backgmao-sirin.146.59.159.175.nip.io/images/{{ordre.demandeintervention.equipement.image}}" alt="equipement" class="rounded-circle thumb-lg">  
                                         <div class="media-body ml-3  align-self-center">
                                             <h5 class="mb-1 text-white">Date debut prévu</h5>
                                             <p class="mb-0 font-12 text-white">{{ordre.debutprevu |date: 'MM-dd-yyyy HH:mm'}}</p>                                                    
@@ -222,7 +222,7 @@
 
                            <div class="pricingTable1 text-center" >
                               
-                                    <img src ="http://127.0.0.1:1337/images/{{ordreintervention.demandeintervention.equipementx.image}}"  alt="" class=" mx-auto  d-block"  width ="200" height="200"> 
+                                    <img src ="http://backgmao-sirin.146.59.159.175.nip.io/images/{{ordreintervention.demandeintervention.equipementx.image}}"  alt="" class=" mx-auto  d-block"  width ="200" height="200"> 
 
                                       <div class="card-post ">
                                              <strong> {{ordreintervention.demandeintervention.equipementx.libelle}} </strong>

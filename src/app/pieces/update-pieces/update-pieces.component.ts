@@ -19,7 +19,7 @@ export class UpdatePiecesComponent implements OnInit {
   selectedFile: any =[];
   message="";
   Fournisseur: any = [];
-  url:any='http://127.0.0.1:1337/images/';
+  url:any='http://backgmao-sirin.146.59.159.175.nip.io/images/';
   Dataglob:any;
   constructor(private Serviceapibackend: BackendApiService,  private router: Router, 
     public fb: FormBuilder,private notifyService : NotificationService,
